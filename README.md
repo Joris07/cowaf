@@ -1,6 +1,7 @@
 # cowaf
-<<<<<<< HEAD
+
 Application de mise en relation de propriétaires et associations d'animaux pour du covoiturage
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
@@ -34,6 +35,3 @@ npm run build
 ```sh
 npm run test:unit
 ```
-=======
-
->>>>>>> fb1e1c756be54c6c43c091db1c4606fabbf7729c
