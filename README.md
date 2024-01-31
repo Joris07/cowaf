@@ -1,16 +1,10 @@
 # Co'waf
 
-Application de mise en relation de propriétaires et associations d'animaux pour du covoiturage
+Application de mise en relation de propriétaires et associations d'animaux pour du covoiturage.
 
-This template should help get you started developing with Vue 3 in Vite.
+Un projet PWA développé avec Vue.js, Symfony API, Docker et MySQL.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Travailler en local
 
 ## Project Setup
 
@@ -35,3 +29,35 @@ npm run build
 ```sh
 npm run test:unit
 ```
+
+## Travail avec Docker
+
+## Prérequis
+
+- Docker
+- Docker Compose
+
+## Installation
+
+1. Clonez le projet depuis GitHub :
+
+   ```bash
+   git clone https://github.com/Joris07/cowaf.git
+
+   cd cowaf/docker
+
+   docker-compose up --build
+   ```
+
+2. Accès à l'Application :
+    - L'application Vue.js est accessible à l'URL : http://localhost:40110
+    - L'API Symfony est accessible à l'URL : http://localhost:40111
+    - PhpMyAdmin est accessible à l'URL : http://localhost:40113
+
+3. Identifiants de Connexion :
+
+    1. PhpMyAdmin :
+        - URL : http://localhost:40113
+        - Server : mysql-db
+        - Utilisateur : cowafUser
+        - Mot de Passe : w8yh9QLt5ibbcTN6xBXaj1
