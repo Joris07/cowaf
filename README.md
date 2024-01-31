@@ -27,7 +27,7 @@ Un projet PWA développé avec Vue.js, Symfony API, Docker et MySQL.
     ```
     
 2 . Attention !
-    - Changer le port vers l'API cowaf
+    - Changer le port vers l'API cowaf lors d'appels FETCH par exemple
     - L'api tourne peut-être sur le même port que le FRONT
 ## Project Setup
 
@@ -62,13 +62,14 @@ npm run test:unit
 
 ## Installation
 
-1. Clonez le projet depuis GitHub :
+1. Installation composer :
+    - Il faut changer le token dans le Dockerfile symfony et vue
 
-   ```bash
-   cd cowaf/docker
+    ```bash
+    cd cowaf/docker
 
-   docker-compose up --build
-   ```
+    docker-compose up --build
+    ```
 
 2. Accès à l'Application :
     - L'application Vue.js est accessible à l'URL : http://localhost:40110
