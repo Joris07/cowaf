@@ -4,8 +4,31 @@ Application de mise en relation de propriétaires et associations d'animaux pour
 
 Un projet PWA développé avec Vue.js, Symfony API, Docker et MySQL.
 
+# Clonez le projet depuis GitHub :
+
+   ```bash
+   git clone https://github.com/Joris07/cowaf.git
+   ```
+
 ## Travailler en local
 
+## Prérequis
+
+- Node.js et npm
+- Vue CLI
+
+1. Installation des dépendances
+    ```bash
+    cd cowaf
+
+    npm install
+
+    npm run serv
+    ```
+    
+2 . Attention !
+    - Changer le port vers l'API cowaf
+    - L'api tourne peut-être sur le même port que le FRONT
 ## Project Setup
 
 ```sh
@@ -42,8 +65,6 @@ npm run test:unit
 1. Clonez le projet depuis GitHub :
 
    ```bash
-   git clone https://github.com/Joris07/cowaf.git
-
    cd cowaf/docker
 
    docker-compose up --build
