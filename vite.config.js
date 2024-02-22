@@ -9,14 +9,28 @@ export default defineConfig({
 		vue(),
 		VitePWA({
 			manifest: {
-				name: 'My Awesome App',
-				short_name: 'MyApp',
-				description: 'My Awesome App description',
+				name: 'Cowaf',
+				description: 'Application de mise en relation d\'adoptant d\'animaux',
 				theme_color: '#ffffff',
 				icons: [
 					{
-						src: '/public/icons/512.png',
+						src: '/icons/512.png',
 						sizes: '512x512',
+						type: 'image/png'
+					},
+					{
+						src: '/icons/192.png',
+						sizes: '192x192',
+						type: 'image/png'
+					},
+					{
+						src: '/icons/32.png',
+						sizes: '32x32',
+						type: 'image/png'
+					},
+					{
+						src: '/icons/16.png',
+						sizes: '16x16',
 						type: 'image/png'
 					}
 				]
