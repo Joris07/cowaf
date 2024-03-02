@@ -2,9 +2,8 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import router from './router'
-import Home from './views/Home.vue'
 
-const app = createApp(Home)
+const app = createApp({})
 
 app.use(router)
 

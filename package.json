@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "serve" : "serve -s dist",
+    "serve": "serve -s dist",
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest"
   },
   "dependencies": {
+    "serve": "^14.2.1",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
   },

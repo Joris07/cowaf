@@ -1,9 +1,5 @@
 @import './base.css';
 
-#app {
-	padding: 2rem;
-}
-
 @media (min-width: 1024px) {
 	body {
 		display: flex;
