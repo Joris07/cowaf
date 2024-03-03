@@ -27,7 +27,7 @@
 	computed: {
 	  buttonStyle() {
 		return {
-		  position: 'fixed',
+		  position: 'absolute',
 		  top: '66px',
 		  left: '25px',
 		  width: '38px',
