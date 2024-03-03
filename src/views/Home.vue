@@ -4,18 +4,17 @@
 		<div id="bottom">
 			<div id="title">
 				<h3 class="bold">Votre application de</h3>
-				<h2 class="bold blue-text">covoiturage animalier</h2>
+				<h2 class="blue-text" id="bold-full">covoiturage animalier</h2>
 			</div>
 			<div id="buttons">
 				<button class="button-border-blue bold">Commencer</button>
-				<div id="">
-					<a href="" id="sans-compte">Déjà un compte ?</a>
+				<div id="bottom-buttons">
+					<a id="sans-compte">Déjà un compte ?</a>
 					<button id="connexion" class="bold">Connexion</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	<router-view></router-view>
 </template>
 
 <script>
@@ -32,7 +31,11 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 10px;
+		gap: 20px;
+	}
+
+	#bold-full {
+		font-weight: 800;
 	}
 
 	#title {
@@ -46,12 +49,13 @@
 		text-decoration: none;
 		color: black;
 		cursor: pointer;
+		font-weight: 500;
 	}
 
 	#connexion {
 		border-radius: 5px;
 		background-color: var(--color-blue);
-		width: 175px;
+		width: 150px;
 		height: 44px;
 		color: white;
 		border: 2px solid var(--color-blue);
@@ -70,6 +74,27 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 30px;
+		margin-top: 10%;
+	}
+
+	#bottom-buttons {
+		gap: 10px;
+		display: flex;
+		align-items: center;
+	}
+
+	@media only screen and (min-width: 48em) {
+		#connexion {	
+			width: 175px;
+		}
+
+		#dog-accueil {
+			height: 70vw;
+		}
+
+		#bottom {
+			margin-top: 0%;
+		}
 	}
 </style>
   

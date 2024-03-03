@@ -1,21 +1,27 @@
-import VueRouter from 'vue-router'
+import {createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
+import Animal from '@/views/Animal.vue'
 
-const router = VueRouter.createRouter({
-  history: createWebHashHistory(),
+const router = createRouter({
+  history: createWebHistory(),
   routes: [
 	{
-	  path: '/',
-	  component: Home
+		path: '/',
+		component: Home,
+		name : 'home'
 	},
 	{
 	  path: '/register',
 	  component: Register
 	},
-	{ 
-		path: '*', 
-		redirect: '/' 
+	{
+		path: '/test',
+		component: Animal
+	},
+	{
+		path: "/:pathMatch(.*)*",
+		redirect: "/"
 	}
   ]
 })

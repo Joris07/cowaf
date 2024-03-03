@@ -3,7 +3,6 @@
 	--color-blue: #09458E;
 	--color-off-white: #E7EDF4;	
 	--color-black: #000000;
-	--color-blue-light: #09458e;
 }
 
 /* Dans le cas où on implémente le Dark mode */
@@ -28,11 +27,44 @@
 
 .button-border-blue {
 	border-radius: 5px;
+	font-size: 21px;
 	width: 250px;
 	height: 58px;
 	border: 3px solid var(--color-blue);
 	background: var(--color-white);
 	color: var(--color-black);
+}
+
+.input-gris {
+	color: var(--color-black);
+	background-color: var(--color-off-white);
+	width: 100%;
+	height: 58px;
+	border-radius: 5px;
+	border: 2px solid var(--color-off-white);
+	outline: none;
+	transition: border-color 0.3s ease-in-out;
+}
+
+.input-blanc {
+	color: var(--color-black);
+	background-color: white;
+	width: 100%;
+	height: 58px;
+	border-radius: 5px;
+	border: 2px solid white;
+	outline: none;
+	transition: border-color 0.3s ease-in-out;
+}
+
+.input-gris:hover,
+.input-blanc:hover {
+    border-color: var(--color-blue);
+}
+
+.input-gris:focus,
+.input-blanc:focus {
+    border-color: var(--color-blue);
 }
 
 .bold {
