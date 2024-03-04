@@ -2,6 +2,7 @@ import {createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
 import Animal from '@/views/Animal.vue'
+import Bougies from '@/views/Bougies.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,7 +18,7 @@ const router = createRouter({
 	},
 	{
 		path: '/test',
-		component: Animal
+		component: Bougies
 	},
 	{
 		path: "/:pathMatch(.*)*",

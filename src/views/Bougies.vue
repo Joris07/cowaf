@@ -1,21 +1,12 @@
 <template>
 	<div id="main">
 		<div class="vingtdeux">
-			<input type="text" id="nom" placeholder="Nom de l'animal">
+			<h1 class="bold">Combien de bougies a-t-il soufflé ?</h1>
 			<div id="container-photo">
-				<label for="fileInput" id="button-file">
-					<input type="file" id="fileInput" style="display: none;" />
-					<div id="rectangle">
-						<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<circle cx="22.5" cy="22.5" r="21" stroke="#B7B4B4" stroke-width="3"/>
-							<path d="M30.064 21.4731V24.481H23.6553V30.8896H20.6475V24.481H14.2388V21.4731H20.6475V15.0645H23.6553V21.4731H30.064Z" fill="#B7B4B4"/>
-						</svg>
-					</div>
-				</label>
+				<img src="/src/assets/img/gateau.png" alt="">
 			</div>
 		</div>
 		
-		<h4>Choisissez une photo où l’on voit bien votre animal</h4>
 		<div class="vingtdeux">
 			<h1 class="bold">Son permis</h1>
 			<div id="permis">
@@ -32,7 +23,7 @@
 				</div>
 			</div>
 		</div>
-		<button id="suivant" class="bold">Étape suivante</button>
+		<button id="valider" class="bold">Valider</button>
 	</div>
 </template>
   
@@ -50,35 +41,6 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 22px;
-	}
-
-	#nom {
-		font-size: 30px;
-		width: 100%;
-		caret-color: var(--color-blue);
-		color: var(--color-blue);
-		font-weight: 700;
-		border : none;
-		outline: none;
-	}
-
-	#nom::placeholder {
-		color: #C7C7C7;
-	}
-
-	#rectangle {
-		width: 275px;
-		height: 227px;
-		border-radius: 5px;
-		background: #E4E4E4;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	h4 {
-		text-align: center;
-		max-width: 250px;
 	}
 
 	h1 {
@@ -137,7 +99,7 @@
 		gap: 10px;
 	}
 
-	#suivant {
+	#valider {
 		color: #09458E;
 		font-size: 23px;
 		width: 250px;
