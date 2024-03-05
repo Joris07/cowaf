@@ -71,7 +71,7 @@
             </tbody>
         </table>
     </div>
-    <Nav selectedIcon="5"></Nav>
+    <Nav selectedIcon="3"></Nav>
 </template>
   
 <script>

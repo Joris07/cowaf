@@ -49,7 +49,7 @@
 
 	.navbar p, 
 	.navbar a {
-		font-size: 12px;
+		font-size: 10px;
 		text-decoration: none;
 		color: #B7B4B4;
 	}

@@ -6,6 +6,7 @@ import Bougies from '@/views/Bougies.vue'
 import Description from '@/views/Description.vue'
 import FicheAnimal from '@/views/FicheAnimal.vue'
 import Recherche from '@/views/Recherche.vue'
+import Profil from '@/views/Profil.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -21,7 +22,7 @@ const router = createRouter({
 	},
 	{
 		path: '/test',
-		component: Recherche
+		component: Profil
 	},
 	{
 		path: "/:pathMatch(.*)*",
