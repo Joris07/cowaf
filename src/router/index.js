@@ -21,7 +21,7 @@ const router = createRouter({
 	},
 	{
 		path: '/test',
-		component: FicheAnimal
+		component: Recherche
 	},
 	{
 		path: "/:pathMatch(.*)*",
