@@ -89,7 +89,6 @@
 			}
   		},
 		watch: {
-    // Surveillez les changements de password
 			confirmPassword() {
 				this.validateConfirmation();
 			}

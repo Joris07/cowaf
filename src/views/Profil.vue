@@ -118,12 +118,7 @@
         position: relative;
     }
 
-    .separate {
-        width: 100%;
-        height: 2px;
-        border-radius: 50%;
-        background-color: #D9D9D9;
-    }
+
 
     .nom-animal {
         padding: 4px 19px;
