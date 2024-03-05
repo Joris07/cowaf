@@ -7,24 +7,24 @@
 				<h2 class="blue-text" id="bold-full">covoiturage animalier</h2>
 			</div>
 			<div id="buttons">
-				<button class="button-border-blue bold">Commencer</button>
+				<button class="button-border-blue bold" @click="this.$router.push('/register')">Commencer</button>
 				<div id="bottom-buttons">
 					<a id="sans-compte">Déjà un compte ?</a>
-					<button id="connexion" class="bold">Connexion</button>
+					<button id="connexion" class="bold" >Connexion</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
 
-<script>
+<!-- <script>
 	import BackButton from '@/components/BackButton.vue';
 
 	export default {
 		name: 'Home',
 		components: { BackButton }
 	};
-</script>
+</script> -->
 
 <style scoped>
 	#buttons {

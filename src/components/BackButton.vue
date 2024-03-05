@@ -28,7 +28,7 @@
 	  buttonStyle() {
 		return {
 		  position: 'absolute',
-		  top: '66px',
+		  top: '30px',
 		  left: '25px',
 		  width: '38px',
 		  height: '38px',

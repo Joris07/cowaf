@@ -4,31 +4,50 @@
 		<div id="champs">
 			<div>
 				<label for="prenom">Prénom</label>
-				<input type="text" class="input-gris" id="prenom">
+				<input type="text" class="input-gris" id="prenom" required>
 			</div>
 			<div>
 				<label for="nom">Nom</label>
-				<input type="text" class="input-gris" id="nom">
+				<input type="text" class="input-gris" id="nom" required>
 			</div>
 			<div>
 				<label for="email">E-mail</label>
-				<input type="email" class="input-gris" id="email">
+				<input type="email" class="input-gris" id="email" required>
 			</div>
-			<div>
+			<div class="input-container">		
 				<label for="password">Mot de passe</label>
-				<input type="password" class="input-gris" id="password">
+				<div class="password-input">
+					<input :type="passwordFieldType" class="input-gris" id="password" v-model="password" @input="validatePassword" required>
+					<span class="toggle-password" @click="togglePasswordVisibility">
+						<img :src="passwordFieldType === 'password' ? eyeIcon : eyeOffIcon" width="20" height="20" alt="Toggle Password Visibility">
+					</span>
+				</div>
+				
 				<ul>
-					<li>Au minimum une majuscule et des minuscules.</li>
-					<li>Un caractère spécial.</li>
-					<li>Un chiffre / numéro.</li>
+					<li>
+						Au minimum une majuscule et des minuscules.
+						<img v-if="passwordCriteria.hasLowercase && passwordCriteria.hasUppercase" :src="checkBoxIcon" width="20" height="20" alt="Checked" class="checkbox-icon">
+					</li>
+					<li>
+						Un caractère spécial.
+						<img v-if="passwordCriteria.hasSpecialChar" :src="checkBoxIcon" width="20" height="20" alt="Checked" class="checkbox-icon">
+					</li>
+					<li>
+						Un chiffre / numéro.
+						<img v-if="passwordCriteria.hasNumber" :src="checkBoxIcon" width="20" height="20" alt="Checked" class="checkbox-icon">
+					</li>
 				</ul>
 			</div>
-			<div>
+			<div class="input-container">
 				<label for="passwordConfirm">Confirmation du mot de passe</label>
-				<input type="password" class="input-gris" id="passwordConfirm">
+				<div class="password-input">
+					<input type="password" class="input-gris" :class="{'input-error': !passwordsMatch}" id="passwordConfirm" v-model="confirmPassword" @blur="validateConfirmation" required>
+					<p v-if="!passwordsMatch" class="error-message">Les deux mots de passe ne sont pas pareils.</p>
+				</div>
+				
 			</div>
 		</div>
-		<button class="button-border-blue bold">Commencer</button>
+		<button class="button-border-blue bold">Inscription</button>
 	</div>
 </template>
 
@@ -37,13 +56,50 @@
 
 	export default {
 		name: 'Register',
-		components: { BackButton }
+		components: { BackButton },
+		data() {
+			return {
+				passwordFieldType: 'password',
+				password: '',
+      			confirmPassword: '',
+				passwordsMatch:  this.password === this.confirmPassword,
+				eyeIcon: '/src/assets/icons/eye-line.svg',
+      			eyeOffIcon: '/src/assets/icons/eye-off-line.svg',
+				checkBoxIcon: '/src/assets/icons/checkbox-line.svg',
+				passwordCriteria: {
+					hasUppercase: false,
+					hasLowercase: false,
+					hasSpecialChar: false,
+					hasNumber: false,
+				},
+			};
+		},
+		methods: {
+			togglePasswordVisibility() {
+				this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
+			},
+			validatePassword() {
+				this.passwordCriteria.hasUppercase = /[A-Z]/.test(this.password);
+				this.passwordCriteria.hasLowercase = /[a-z]/.test(this.password);
+				this.passwordCriteria.hasSpecialChar = /[\W_]/.test(this.password);
+				this.passwordCriteria.hasNumber = /\d/.test(this.password);
+			},
+			validateConfirmation() {
+				this.passwordsMatch = this.password === this.confirmPassword;
+			}
+  		},
+		watch: {
+    // Surveillez les changements de password
+			confirmPassword() {
+				this.validateConfirmation();
+			}
+		}
 	};
 </script>
 
 <style scoped>
 	#main {
-		padding: 120px 26px 10px 26px;
+		padding: 80px 26px 10px 26px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -59,6 +115,7 @@
 		font-size: 18px;
 		margin-top: 10px;
 		caret-color: var(--color-blue);
+		padding: 10px
 	}
 
 	#champs {
@@ -70,5 +127,35 @@
 	ul {
 		padding-left: 20px;
 	}
+
+	.input-container {
+		position: relative;
+		width: 100%;
+	}
+
+	.password-input {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.toggle-password {
+		position: absolute;
+		right: 10px;
+		cursor: pointer;
+		top: 42%;
+		transform: translateY(-50%);
+	}
+
+	.input-gris.input-error {
+		border-color: red; /* Change l'encart en rouge */
+	}
+
+	.error-message {
+		color: red; /* Message d'erreur en rouge */
+		font-size: 0.8em; /* Ajustez selon vos besoins */
+		margin-top: 5px;
+	}
+
 </style>
   
