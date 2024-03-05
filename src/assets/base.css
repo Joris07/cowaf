@@ -74,3 +74,13 @@
 .blue-text {
 	color: var(--color-blue);
 }
+
+.button-off-white {
+	color: #09458E;
+	font-size: 23px;
+	width: 250px;
+	height: 58px;
+	border: 0px solid #E7EDF4;
+	border-radius: 22px;
+	padding: 15px;
+}

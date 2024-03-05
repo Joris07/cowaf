@@ -1,29 +1,32 @@
 <template>
 	<div id="main">
-		<div class="vingtdeux">
-			<h1 class="bold">Combien de bougies a-t-il soufflé ?</h1>
-			<div id="container-photo">
-				<img src="/src/assets/img/gateau.png" alt="">
+		<div id="main-second">
+			<div class="vingtdeux">
+				<h1 class="bold">Combien de bougies a-t-il soufflé ?</h1>
+				<div id="container-photo">
+					<img src="/src/assets/img/gateau.png" alt="">
+				</div>
 			</div>
-		</div>
-		
-		<div class="vingtdeux">
-			<h1 class="bold">Son permis</h1>
-			<div id="permis">
-				<span id="photo-permis"></span>
-				<div id="texte">
-					<span id="nom-permis"></span>
-					<span id="age-permis"></span>
-					<div id="description-permis">
-						<span class="description"></span>
-						<span class="description"></span>
-						<span class="description"></span>
-						<span class="description"></span>
+			
+			<div class="vingtdeux">
+				<h1 class="bold">Son permis</h1>
+				<div id="permis">
+					<span id="photo-permis"></span>
+					<div id="texte">
+						<span id="nom-permis"></span>
+						<span id="age-permis"></span>
+						<div id="description-permis">
+							<span class="description"></span>
+							<span class="description"></span>
+							<span class="description"></span>
+							<span class="description"></span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<button id="valider" class="bold">Valider</button>
+		
+		<button class="bold button-off-white">Valider</button>
 	</div>
 </template>
   
@@ -43,9 +46,17 @@
 		gap: 22px;
 	}
 
+	#main-second {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 22px;
+	}
+
 	h1 {
 		color: var(--color-blue);
 		align-self: normal;
+		max-width: 320px;
 	}
 
 	#permis {
@@ -97,16 +108,6 @@
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
-	}
-
-	#valider {
-		color: #09458E;
-		font-size: 23px;
-		width: 250px;
-		height: 58px;
-		border: 0px solid #E7EDF4;
-		border-radius: 22px;
-		padding: 15px;
 	}
 </style>
   
