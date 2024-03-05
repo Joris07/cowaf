@@ -12,11 +12,11 @@
 	props: {
 	  backgroundColor: {
 		type: String,
-		default: 'var(--color-blue)', // Fond du cercle par défaut en bleu
+		default: 'var(--color-blue)',
 	  },
 	  arrowColor: {
 		type: String,
-		default: 'white', // Couleur de la flèche par défaut en blanc
+		default: 'white',
 	  },
 	},
 	methods: {

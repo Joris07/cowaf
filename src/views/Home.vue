@@ -17,15 +17,6 @@
 	</div>
 </template>
 
-<!-- <script>
-	import BackButton from '@/components/BackButton.vue';
-
-	export default {
-		name: 'Home',
-		components: { BackButton }
-	};
-</script> -->
-
 <style scoped>
 	#buttons {
 		display: flex;
