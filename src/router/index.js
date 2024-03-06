@@ -8,6 +8,8 @@ import FicheAnimal from '@/views/FicheAnimal.vue'
 import Recherche from '@/views/Recherche.vue'
 import Profil from '@/views/Profil.vue'
 import Depart from '@/views/Publier/Depart.vue'
+import Arriver from '@/views/Publier/Arriver.vue'
+import Prix from '@/views/Publier/Prix.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -23,7 +25,7 @@ const router = createRouter({
 	},
 	{
 		path: '/test',
-		component: Depart
+		component: Prix
 	},
 	{
 		path: "/:pathMatch(.*)*",

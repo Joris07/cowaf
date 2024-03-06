@@ -77,12 +77,15 @@
 
 .button-off-white {
 	color: #09458E;
-	font-size: 23px;
-	width: 250px;
-	height: 58px;
+	font-size: 17px;
+	width:  180px;
+	height: 45px;
 	border: 0px solid #E7EDF4;
 	border-radius: 22px;
 	padding: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .search-barre {
