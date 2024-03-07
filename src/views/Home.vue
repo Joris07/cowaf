@@ -10,12 +10,34 @@
 				<button class="button-border-blue bold" @click="this.$router.push('/register')">Commencer</button>
 				<div id="bottom-buttons">
 					<a id="sans-compte">Déjà un compte ?</a>
-					<button id="connexion" class="bold" >Connexion</button>
+					<button id="connexion" class="bold" @click="seConnecter">Connexion</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
+
+<script>
+export default {
+  methods: {
+    seConnecter() {
+      // Votre logique pour l'événement click ici
+      // Par exemple, un appel fetch vers votre API Symfony
+      fetch('http://joris.gourdon.angers.mds-project.fr:40112/api/login', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			'email' : 'test'
+		}),
+	})
+		.then((res) => res.json())
+		.then((result) => console.log(result));
+    },
+  },
+};
+</script>
 
 <style scoped>
 	#buttons {
