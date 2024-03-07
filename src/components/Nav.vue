@@ -1,7 +1,7 @@
 <template>
 	<nav class="navbar">
 	  <router-link v-for="(route, index) in routes" :key="index" :to="route.path" class="group">
-		<img :src="'/public/img/' + route.icon + '.svg'" alt="Icon" :class="{ 'selected': route.id === selectedIcon }"></img>
+		<img :src="'/img/' + route.icon + '.svg'" alt="Icon" :class="{ 'selected': route.id === selectedIcon }"></img>
 		<p :class="{ 'selected': route.id === selectedIcon }">{{ route.texte }}</p>
 	  </router-link>
 	</nav>

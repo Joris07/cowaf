@@ -7,7 +7,7 @@
 				<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186" viewBox="0 0 186 186" fill="none">
 					<circle cx="93" cy="93" r="93" fill="#E7EDF4"/>
 				</svg>
-				<img src="/public/img/image-plus.png" alt="plus image">
+				<img src="/img/image-plus.png" alt="plus image">
 			</div>
 			<label for="fileInput" id="button-file">
 				Ajouter une photo de profil

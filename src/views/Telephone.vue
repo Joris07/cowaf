@@ -1,7 +1,7 @@
 <template>
 	<div id="main">
 		<BackButton />
-	  	<img src="/public/img/car-phone.png" alt="voiture">
+	  	<img src="/img/car-phone.png" alt="voiture">
   
 	  	<div id="off-white-background" class="full-height-container">
 			<div>

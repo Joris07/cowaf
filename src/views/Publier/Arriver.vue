@@ -3,7 +3,7 @@
 	<div id="main">
 		<h1 class="title-publier bold">Où allez-vous ?</h1>
         <div class="search-barre">
-            <img src="/public/img/loupe.png" alt="">
+            <img src="/img/loupe.png" alt="">
             <input placeholder="Saisissez l'adresse..." class="input-search" type="text" >
         </div>
         <div id="position-actuelle">

@@ -1,13 +1,13 @@
 <template>
 	<div id="main">
-		<img id="img-principal" src="/public/img/principal-search.png" alt="search">
+		<img id="img-principal" src="/img/principal-search.png" alt="search">
         
         <div id="div-recherche">
             <div>
                 <table>
                     <tbody>
                         <tr>
-                            <td><img src="/public/img/icon-depart.png" alt=""></td>
+                            <td><img src="/img/icon-depart.png" alt=""></td>
                             <td><input type="text" id="depart" class="input-blanc" placeholder="Départ"></td>
                         </tr>
                         <tr>
@@ -15,7 +15,7 @@
                         </tr>
 
                         <tr>
-                            <td><img src="/public/img/icon-arrive.png" alt=""></td>
+                            <td><img src="/img/icon-arrive.png" alt=""></td>
                             <td><input type="text" id="arrive" class="input-blanc" placeholder="Arrivée"></td>
                         </tr>
                         <tr>
@@ -23,7 +23,7 @@
                         </tr>
 
                         <tr>
-                            <td><img src="/public/img/icon-date.png" alt=""></td>
+                            <td><img src="/img/icon-date.png" alt=""></td>
                             <td><input type="text" id="date" class="input-blanc" placeholder="Date"></td>
                         </tr>
                         <tr>
@@ -31,7 +31,7 @@
                         </tr>
 
                         <tr>
-                            <td><img src="/public/img/icon-chat.png" alt=""></td>
+                            <td><img src="/img/icon-chat.png" alt=""></td>
                             <td>
                                 <input list="animals" type="text" id="date" class="input-blanc" placeholder="Chat">
                                 <datalist id="animals">
@@ -44,7 +44,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <img src="/public/img/plus-bleu.png" alt="">
+                <img src="/img/plus-bleu.png" alt="">
             </div>
             <button id="chercher" class="bold">Chercher un trajet</button>
         </div>
@@ -52,21 +52,21 @@
         <table id="historique" class="column-flex-center">
             <tbody class="column-flex-center" style="gap: 20px;">
                 <tr class="trajet-tr">
-                    <td><img src="/public/img/icon-historique.png" alt=""></td>
+                    <td><img src="/img/icon-historique.png" alt=""></td>
                     <td>
                         <p>t dzdazdadadad -> zzadazdazdfrgegherhe</p>
                         <p class="date-trajet">9 janvier 2024</p>
                     </td>
-                    <td><img src="/public/img/arrow-right.png" alt=""></td>
+                    <td><img src="/img/arrow-right.png" alt=""></td>
                 </tr>
 
                 <tr class="trajet-tr">
-                    <td><img src="/public/img/icon-historique.png" alt=""></td>
+                    <td><img src="/img/icon-historique.png" alt=""></td>
                     <td>
                         <p>t dzdazdadadad -> zzadazdazdfrgegherhe</p>
                         <p class="date-trajet">9 janvier 2024</p>
                     </td>
-                    <td><img src="/public/img/arrow-right.png" alt=""></td>
+                    <td><img src="/img/arrow-right.png" alt=""></td>
                 </tr>
             </tbody>
         </table>

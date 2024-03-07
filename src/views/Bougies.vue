@@ -4,7 +4,7 @@
 			<div class="vingtdeux">
 				<h1 class="bold">Combien de bougies a-t-il soufflé ?</h1>
 				<div id="container-photo">
-					<img src="/public/img/gateau.png" alt="">
+					<img src="/img/gateau.png" alt="">
 				</div>
 			</div>
 			
