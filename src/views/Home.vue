@@ -21,15 +21,14 @@
 export default {
   methods: {
     seConnecter() {
-      // Votre logique pour l'événement click ici
-      // Par exemple, un appel fetch vers votre API Symfony
       fetch('http://joris.gourdon.angers.mds-project.fr:40112/api/login', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 		},
 		body: JSON.stringify({
-			'email' : 'test'
+			'email' : 'test@gmail.com',
+			'password' : "pldhKLO74*"
 		}),
 	})
 		.then((res) => res.json())
