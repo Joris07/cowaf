@@ -63,9 +63,9 @@
 				password: '',
       			confirmPassword: '',
 				passwordsMatch:  this.password === this.confirmPassword,
-				eyeIcon: '/src/assets/icons/eye-line.svg',
-      			eyeOffIcon: '/src/assets/icons/eye-off-line.svg',
-				checkBoxIcon: '/src/assets/icons/checkbox-line.svg',
+				eyeIcon: '/public/icons/eye-line.svg',
+      			eyeOffIcon: '/public/icons/eye-off-line.svg',
+				checkBoxIcon: '/public/icons/checkbox-line.svg',
 				passwordCriteria: {
 					hasUppercase: false,
 					hasLowercase: false,

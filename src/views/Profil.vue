@@ -1,7 +1,7 @@
 <template>
 	<div id="main">
 		<div id="top">
-            <img src="/src/assets/img/profil-arthur.png" alt="Profil" id="photo">
+            <img src="/public/img/profil-arthur.png" alt="Profil" id="photo">
             <h4 id="prenom" class="bold blue-text">Arthur</h4>
             <button id="modifier" class="bold blue-text">Modifier mes informations personnelles</button>
         </div>
@@ -10,11 +10,11 @@
             <h4 class="bold blue-text title">Votre profil</h4>
             <div id="div-mid-profil">
                 <div class="mid-profil">
-                    <img src="/src/assets/img/trajet-publies.png" alt="">
+                    <img src="/public/img/trajet-publies.png" alt="">
                     <span>16 trajets publiés</span>
                 </div>
                 <div class="mid-profil">
-                    <img src="/src/assets/img/stars-avis.png" alt="">
+                    <img src="/public/img/stars-avis.png" alt="">
                     <span> 4.6 / 5 - 17 avis</span>
                 </div>
             </div>
@@ -24,7 +24,7 @@
             <h4 class="bold blue-text title">Mes animaux</h4>
             <div id="animaux">
                 <div>
-                    <img class="photos-animaux" src="/src/assets/img/lumo-petit.png" alt="">
+                    <img class="photos-animaux" src="/public/img/lumo-petit.png" alt="">
                     <span class="nom-animal">TEst</span>
                 </div>
                 <div id="imposteur"><div id="plus" class="bold blue-text">+</div></div>

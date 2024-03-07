@@ -1,7 +1,7 @@
 <template>
 	<div id="main">
 		<div id="top">
-			<img src="/src/assets/img/lumo-grand.png" alt="Photo animal" id="photo">
+			<img src="/public/img/lumo-grand.png" alt="Photo animal" id="photo">
 			<h1 type="text" id="nom">Lumo</h1>
 			<h2 id="age">3 ans</h2>
 		</div>
@@ -9,7 +9,7 @@
 		<div id="mid">
 			<p class="bold">16 trajets effectués</p>
 			<div id="avis">
-				<img src="/src/assets/img/stars.png"alt="">
+				<img src="/public/img/stars.png"alt="">
 				<p id="note" class="bold">4.8 / 5<span> - avis</span></p>
 				<button id="lire-avis">lire les avis ></button>
 			</div>

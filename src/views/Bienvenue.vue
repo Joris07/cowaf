@@ -10,7 +10,7 @@
             <div class="circle"></div>
         </div>
         <div id="body">
-            <img src="/src/assets/img/bienvenue.png" alt="carte">
+            <img src="/public/img/bienvenue.png" alt="carte">
             <p>
                 Afin de faciliter le trajet entre votre animal
                 et le conducteur, nous vous demandons

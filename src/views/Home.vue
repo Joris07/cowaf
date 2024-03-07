@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<img src="/src/assets/img/dog-accueil.png" alt="dog accueil" id="dog-accueil">
+		<img src="/public/img/dog-accueil.png" alt="dog accueil" id="dog-accueil">
 		<div id="bottom">
 			<div id="title">
 				<h3 class="bold">Votre application de</h3>
