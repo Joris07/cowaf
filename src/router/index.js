@@ -1,4 +1,5 @@
 import {createRouter, createWebHistory } from 'vue-router'
+import Cookies from 'js-cookie';
 import store from '../store';
 import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
@@ -45,12 +46,10 @@ router.beforeEach((to, from, next) => {
 	const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 	const isAuthenticated = store.getters.isAuthenticated;
 
-	console.log(store);
-  
 	if (requiresAuth && !isAuthenticated) {
-	  next('/login');
+	  	next('/login');
 	} else {
-	  next();
+	  	next();
 	}
 });
 

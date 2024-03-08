@@ -8,22 +8,13 @@ export const authService = {
     try {
       const response = await fetch(`${BASE_URL}/login`, {
 			method: 'POST',
+      credentials : 'include',
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(credentials),
 	  }).then(response => {
-			console.log(response.headers);
-			const cookieHeader = response.headers.getSetCookie();
-			console.log(cookieHeader);
-			const token = extractTokenFromCookieHeader(cookieHeader);
-			console.log(token);
-	  
-			// Stocker le token dans le cookie
-			if (token) {
-			  setTokenCookie(token);
-			}
-	  
+		
 			return { token };
 	  });
     } catch (error) {
@@ -36,18 +27,7 @@ export const authService = {
   async register(userData) {
     try {
       const response = await apiService.post('register', userData);
-
-      // Récupérer le token du header Set-Cookie de la réponse
-      const cookieHeader = response.headers.get('Set-Cookie');
-	  console.log(cookieHeader);
-      const token = extractTokenFromCookieHeader(cookieHeader);
-	  console.log(token);
-
-      // Stocker le token dans le cookie
-      if (token) {
-        setTokenCookie(token);
-      }
-
+      
       return { token };
     } catch (error) {
       console.error('Registration failed:', error);
@@ -56,13 +36,3 @@ export const authService = {
   },
 };
 
-function extractTokenFromCookieHeader(cookieHeader) {
-  // Parsez le header Set-Cookie pour extraire la valeur du cookie
-  const match = cookieHeader.match(/BEARER=([^;]+)/);
-  return match ? match[1] : null;
-}
-
-function setTokenCookie(token) {
-  // Stocker le token dans le cookie avec une durée de vie d'un jour
-  Cookies.set('token', token, { expires: 1 });
-}
