@@ -1,4 +1,5 @@
 import {createRouter, createWebHistory } from 'vue-router'
+import store from '../store';
 import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
 import Animal from '@/views/Animal.vue'
@@ -10,6 +11,7 @@ import Profil from '@/views/Profil.vue'
 import Depart from '@/views/Publier/Depart.vue'
 import Arriver from '@/views/Publier/Arriver.vue'
 import Prix from '@/views/Publier/Prix.vue'
+import Login from '@/views/Login.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,12 +22,17 @@ const router = createRouter({
 		name : 'home'
 	},
 	{
+		path: '/login',
+		component: Login
+	},
+	{
 	  path: '/register',
 	  component: Register
 	},
 	{
 		path: '/test',
-		component: Prix
+		component: Prix,
+		meta: { requiresAuth: true }
 	},
 	{
 		path: "/:pathMatch(.*)*",
@@ -33,5 +40,18 @@ const router = createRouter({
 	}
   ]
 })
+
+router.beforeEach((to, from, next) => {
+	const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+	const isAuthenticated = store.getters.isAuthenticated;
+
+	console.log(store);
+  
+	if (requiresAuth && !isAuthenticated) {
+	  next('/login');
+	} else {
+	  next();
+	}
+});
 
 export default router

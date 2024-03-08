@@ -136,14 +136,14 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+		justify-content: center;
 	}
 
 	.toggle-password {
 		position: absolute;
 		right: 10px;
 		cursor: pointer;
-		top: 42%;
-		transform: translateY(-50%);
+		transform: translateY(25%);
 	}
 
 	.input-gris.input-error {
