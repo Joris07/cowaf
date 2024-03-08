@@ -1,7 +1,7 @@
 import { apiService } from './apiService';
 import Cookies from 'js-cookie';
 
-const BASE_URL = 'http://joris.gourdon.angers.mds-project.fr:40112/api';
+const BASE_URL = 'https://joris.gourdon.angers.mds-project.fr:40112/api';
 
 export const authService = {
   async login(credentials) {

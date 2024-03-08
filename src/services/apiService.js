@@ -1,4 +1,4 @@
-const BASE_URL = 'http://joris.gourdon.angers.mds-project.fr:40112/api';
+const BASE_URL = 'https://joris.gourdon.angers.mds-project.fr:40112/api';
 
 export const apiService = {
 	async get(endpoint) {
