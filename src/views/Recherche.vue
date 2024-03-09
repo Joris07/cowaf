@@ -103,7 +103,7 @@
             },
             getIcon(animal) {
                 if (animal === 'Chien') {
-                    return '/img/icon-chient.png';
+                    return '/img/icon-chien.png';
                 } else {
                     return '/img/icon-chat.png';
                 }
