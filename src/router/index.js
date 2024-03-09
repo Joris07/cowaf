@@ -15,6 +15,7 @@ import PhotoProfil from '@/views/PhotoProfil.vue';
 import Telephone from '@/views/Telephone.vue';
 import Prix from '@/views/Publier/Prix.vue'
 import Login from '@/views/Login.vue';
+import Trajets from '@/views/Trajets.vue';
 import { authService } from '@/services/authService';
 
 const router = createRouter({
@@ -22,8 +23,7 @@ const router = createRouter({
   routes: [
 	{
 		path: '/',
-		component: Home,
-		name : 'home'
+		component: Home
 	},
 	{
 		path: '/login',
@@ -54,13 +54,28 @@ const router = createRouter({
 		component: Telephone
 	},
 	{
-		path: '/test',
-		component: Prix,
+		path: '/rechercher',
+		component: Recherche,
+		meta: { requiresAuth: true }
+	},
+	{
+		path: '/profil',
+		component: Profil,
+		meta: { requiresAuth: true }
+	},
+	{
+		path: '/trajets',
+		component: Trajets,
+		meta: { requiresAuth: true }
+	},
+	{
+		path: '/publier',
+		component: Depart,
 		meta: { requiresAuth: true }
 	},
 	{
 		path: "/:pathMatch(.*)*",
-		redirect: "/"
+		redirect: '/rechercher'
 	}
   ]
 })
@@ -71,15 +86,13 @@ router.beforeEach(async (to, from, next) => {
 	if (requiresAuth) {
 		try {
 			const userId = await authService.validate();
-			console.log(userId + " router ");
 			
-			if (userId) {
+			if (userId && userId !== 0) {
 				next();
 			} else {
 				next('/login');
 			}
 		} catch (error) {
-			console.error('Erreur de validation du token:', error);
 			next('/login');
 		}
 	} else {

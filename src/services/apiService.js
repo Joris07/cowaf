@@ -14,8 +14,7 @@ export const apiService = {
 
 			return response.json();
 		} catch (error) {
-			console.error('Error in GET request:', error);
-			throw new Error('An error occurred while processing your request. Please try again.');
+			throw error;
 		}
 	},
 
@@ -36,10 +35,10 @@ export const apiService = {
 		
 			const responseBody = await response.text();
 			const parsedResponse = responseBody ? JSON.parse(responseBody) : null;
-		
+
 			return parsedResponse;
 		} catch (error) {
-		throw new Error('Erreur');
+			throw error;
 		}
 	},
 };
