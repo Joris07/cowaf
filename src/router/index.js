@@ -77,15 +77,7 @@ const router = createRouter({
 	},
 	{
 		path: "/:pathMatch(.*)*",
-		redirect: async (to) => {	
-			const userId = await authService.validate();
-		
-			if (userId && userId !== 0) {
-			  	return "/rechercher";
-			} else {
-			  	return "/";
-			}
-		}
+		redirect: '/rechercher'
 	}
   ]
 })
