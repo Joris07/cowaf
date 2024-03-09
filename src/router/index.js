@@ -23,8 +23,7 @@ const router = createRouter({
   routes: [
 	{
 		path: '/',
-		component: Home,
-		name : 'home'
+		component: Home
 	},
 	{
 		path: '/login',
@@ -55,25 +54,24 @@ const router = createRouter({
 		component: Telephone
 	},
 	{
-		path: '/test',
-		component: Prix,
+		path: '/rechercher',
+		component: Recherche,
 		meta: { requiresAuth: true }
 	},
 	{
-		path: '/rechercher',
-		component: Recherche
-	},
-	{
 		path: '/profil',
-		component: Profil
+		component: Profil,
+		meta: { requiresAuth: true }
 	},
 	{
 		path: '/trajets',
-		component: Trajets
+		component: Trajets,
+		meta: { requiresAuth: true }
 	},
 	{
 		path: '/publier',
-		component: Depart
+		component: Depart,
+		meta: { requiresAuth: true }
 	},
 	{
 		path: "/:pathMatch(.*)*",
