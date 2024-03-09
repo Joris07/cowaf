@@ -47,7 +47,10 @@
 				
 			</div>
 		</div>
-		<button class="button-border-blue bold">Inscription</button>
+		<div class="form">
+			<button class="button-border-blue bold" :class="{'form-error': !isFormValid}" @click="submitForm">Inscription</button>
+			<p v-if="!isFormValid" class="error-message">Veuillez remplir correctement tous les champs avant de vous inscrire.</p>
+		</div>	
 	</div>
 </template>
 
@@ -62,6 +65,7 @@
 				passwordFieldType: 'password',
 				password: '',
       			confirmPassword: '',
+				isFormValid: true,
 				passwordsMatch:  this.password === this.confirmPassword,
 				eyeIcon: '/icons/eye-line.svg',
       			eyeOffIcon: '/icons/eye-off-line.svg',
@@ -86,6 +90,22 @@
 			},
 			validateConfirmation() {
 				this.passwordsMatch = this.password === this.confirmPassword;
+			},
+			validateForm() {
+			// Validez ici tous les champs requis du formulaire
+			// Par exemple, vérifiez si tous les champs sont non vides et que les mots de passe correspondent
+				return this.password && this.confirmPassword && this.passwordsMatch && this.password === this.confirmPassword;
+			},
+			submitForm() {
+				if (this.validateForm()) {
+					this.isFormValid = true;
+					this.$router.push('/telephone');
+				} else {
+					// Gérez le cas où le formulaire n'est pas valide
+					// Par exemple, affichez un message d'erreur global ou mettez en surbrillance les champs invalides
+					// alert("Veuillez remplir correctement tous les champs avant de vous inscrire.");
+					this.isFormValid = false;
+				}
 			}
   		},
 		watch: {
@@ -103,6 +123,7 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 30px;
+    	height: 100vh
 	}
 
 	label {
@@ -147,7 +168,18 @@
 	}
 
 	.input-gris.input-error {
-		border-color: red; /* Change l'encart en rouge */
+		border-color: red !important; /* Change l'encart en rouge */
+	}
+
+	.form {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.form-error {
+		border: 3px solid red !important;
 	}
 
 	.error-message {

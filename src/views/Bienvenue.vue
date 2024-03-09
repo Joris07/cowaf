@@ -19,7 +19,7 @@
             </p>
         </div>
         <button class="button-border-blue bold">C'est parti</button>
-        <button class="bold" id="button-blue">Je souhaite uniquement effectuer les covoiturages</button>
+        <button class="bold" id="button-blue" @click="submit">Je souhaite uniquement effectuer les covoiturages</button>
 	</div>
 </template>
     
@@ -28,7 +28,12 @@
 
 	export default {
 		name: 'Bienvenue',
-		components: { BackButton }
+		components: { BackButton },
+        methods: {
+            submit(){
+                this.$router.push('/recherche');
+            }
+        }
 	};
 </script>
   
@@ -39,6 +44,8 @@
 		align-items: center;
 		gap: 30px;
 		height: 100vh;
+		overflow: hidden;
+        padding-bottom: 10px;
 	}
 
     #top {

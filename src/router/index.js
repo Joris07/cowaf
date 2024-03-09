@@ -10,6 +10,9 @@ import Recherche from '@/views/Recherche.vue'
 import Profil from '@/views/Profil.vue'
 import Depart from '@/views/Publier/Depart.vue'
 import Arriver from '@/views/Publier/Arriver.vue'
+import Bienvenue from '@/views/Bienvenue.vue';
+import PhotoProfil from '@/views/PhotoProfil.vue';
+import Telephone from '@/views/Telephone.vue';
 import Prix from '@/views/Publier/Prix.vue'
 import Login from '@/views/Login.vue';
 import { authService } from '@/services/authService';
@@ -27,8 +30,24 @@ const router = createRouter({
 		component: Login
 	},
 	{
+		path: '/bienvenue',
+		component: Bienvenue
+	},
+	{
+		path: '/recherche',
+		component: Recherche
+	},
+	{
+		path: '/photoprofil',
+		component: PhotoProfil
+	},
+	{
 	  path: '/register',
 	  component: Register
+	},
+	{
+		path: '/telephone',
+		component: Telephone
 	},
 	{
 		path: '/test',
