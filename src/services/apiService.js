@@ -3,7 +3,10 @@ const BASE_URL = 'https://joris.gourdon.angers.mds-project.fr:40112/api';
 export const apiService = {
 	async get(endpoint) {
 		try {
-			const response = await fetch(`${BASE_URL}/${endpoint}`);
+			const response = await fetch(`${BASE_URL}/${endpoint}`, {
+				method: 'GET',
+				credentials : 'include'
+			});
 
 			if (!response.ok) {
 				throw new Error(`HTTP error! Status: ${response.status}`);
