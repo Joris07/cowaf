@@ -23,8 +23,11 @@
                         </tr>
 
                         <tr>
-                            <td><img src="/img/icon-date.png" alt=""></td>
-                            <td><input type="text" id="date" class="input-blanc" placeholder="Date"></td>
+                            <td><img src="/img/icon-date.png" alt="date"></td>
+                            <td>
+                                <input type="text" id="date-text" class="input-blanc" placeholder="Date" onfocus="this.style.display='none'; document.getElementById('date-date').style.display='block'; document.getElementById('date-date').focus();" />
+                                <input type="date" id="date-date" class="input-blanc" style="display:none;" onblur="if(!this.value) { this.style.display='none'; document.getElementById('date-text').style.display='block'; }" />
+                            </td>
                         </tr>
                         <tr>
                             <td class="tiret"></td>
@@ -35,14 +38,6 @@
                                 <td>
                                     <img :src="getIcon(animal.selected)" alt="" width="24" height="24">
                                 </td>
-                                <!-- <td>
-                                <input list="animal-options" class="input-blanc" placeholder="Chat" v-model="animal.selected">
-                                <datalist id="animal-options">
-                                    <option value="Chat"></option>
-                                    <option value="Chien"></option>
-                                    <option value="Tortue"></option>
-                                </datalist>
-                                </td> -->
                                 <td>
                                     <select v-model="animal.selected" class="input-blanc" @click="resetSelection(index)">
                                         <option disabled value="">Sélectionnez un animal</option>
@@ -220,6 +215,29 @@
         width: 100%;
         border: none;
         padding: 14px;
+    }
+
+    .input-blanc::placeholder {
+        color: #B7B4B4; /* Couleur du placeholder */
+        opacity: 1; /* Nécessaire pour certains navigateurs pour voir la couleur */
+    }
+
+    .input-blanc[type="date"] {
+        position: relative;
+        -webkit-appearance: none; /* Pour Chrome */
+        appearance: none;
+        padding-right: 30px; /* Ajustez selon la taille de l'icône de calendrier */
+        background: url('/path/to/your/custom/icon') no-repeat right, white; /* Facultatif: Ajoutez votre propre icône de calendrier */
+        cursor: pointer; /* Pour indiquer que l'élément est interactif */
+    }
+
+    .input-blanc[type="date"]::-webkit-calendar-picker-indicator {
+        position: absolute;
+        right: 0;
+        opacity: 0; /* Rend l'icône d'origine invisible, mais elle reste fonctionnelle */
+        width: 20px; /* Ajustez la largeur pour couvrir l'icône d'origine complètement */
+        height: 100%;
+        cursor: pointer; /* Assure que le curseur indique une action */
     }
 </style>
   

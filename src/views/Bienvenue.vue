@@ -18,8 +18,8 @@
                 compagnon poilu (ou non) !
             </p>
         </div>
-        <button class="button-border-blue bold">C'est parti</button>
-        <button class="bold" id="button-blue" @click="submit">Je souhaite uniquement effectuer les covoiturages</button>
+        <button class="button-border-blue bold" @click="goToAnimal">C'est parti</button>
+        <button class="bold" id="button-blue" @click="goToRecherche">Je souhaite uniquement effectuer les covoiturages</button>
 	</div>
 </template>
     
@@ -30,8 +30,11 @@
 		name: 'Bienvenue',
 		components: { BackButton },
         methods: {
-            submit(){
+            goToRecherche(){
                 this.$router.push('/recherche');
+            },
+            goToAnimal(){
+                this.$router.push('/ficheanimal');
             }
         }
 	};

@@ -30,6 +30,10 @@ const router = createRouter({
 		component: Login
 	},
 	{
+		path: '/ficheanimal',
+		component: FicheAnimal
+	},
+	{
 		path: '/bienvenue',
 		component: Bienvenue
 	},

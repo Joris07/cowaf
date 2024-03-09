@@ -25,7 +25,7 @@
             <div id="animaux">
                 <div>
                     <img class="photos-animaux" src="/img/lumo-petit.png" alt="">
-                    <span class="nom-animal">TEst</span>
+                    <span class="nom-animal">Lumo</span>
                 </div>
                 <div id="imposteur"><div id="plus" class="bold blue-text">+</div></div>
             </div>
