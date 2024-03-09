@@ -14,7 +14,6 @@
 					<img :src="passwordFieldType === 'password' ? eyeIcon : eyeOffIcon" width="20" height="20" alt="Toggle Password Visibility">
 				</span>
 			</div>
-			<button @click="cookie">CLIQUE</button>
 		</div>
 	</div>
 	<div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
@@ -24,11 +23,8 @@
 <script>
 import BackButton from '@/components/BackButton.vue';
 import { authService } from '@/services/authService';
-import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { ref, computed } from 'vue';
-import Cookies from 'js-cookie';
-import { apiService } from '@/services/apiService';
 
 export default {
 	name: 'Login',
@@ -70,16 +66,6 @@ export default {
 			}
 		};
 
-		const cookie = async () => {
-			try {
-				const response = await apiService.get('users');
-				console.log(response);
-			} catch (error) {
-				console.error('ERROR', error);
-				throw error;
-			}
-		}
-
 		return {
 			email,
 			password,
@@ -90,8 +76,7 @@ export default {
 			eyeOffIcon,
 			checkBoxIcon,
 			togglePasswordVisibility,
-			login,
-			cookie
+			login
 		};
 	}
 };

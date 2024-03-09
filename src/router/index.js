@@ -1,5 +1,4 @@
 import {createRouter, createWebHistory } from 'vue-router'
-import Cookies from 'js-cookie';
 import store from '../store';
 import Home from '../views/Home.vue'
 import Register from '../views/Register.vue'
@@ -13,6 +12,7 @@ import Depart from '@/views/Publier/Depart.vue'
 import Arriver from '@/views/Publier/Arriver.vue'
 import Prix from '@/views/Publier/Prix.vue'
 import Login from '@/views/Login.vue';
+import { authService } from '@/services/authService';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -42,12 +42,23 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
 	const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-	console.log(Cookies.get('BEARER'));
   
-	if (requiresAuth && !(Cookies.get('BEARER'))) {
-	  	next('/login');
+	if (requiresAuth) {
+		try {
+			const userId = await authService.validate();
+			console.log(userId + " router ");
+			
+			if (userId) {
+				next();
+			} else {
+				next('/login');
+			}
+		} catch (error) {
+			console.error('Erreur de validation du token:', error);
+			next('/login');
+		}
 	} else {
 		next();
 	}

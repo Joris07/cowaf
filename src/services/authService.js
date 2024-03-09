@@ -1,4 +1,5 @@
 import { apiService } from './apiService';
+import store from '@/store';
 
 export const authService = {
 	async login(credentials) {
@@ -18,4 +19,18 @@ export const authService = {
 			throw error; 
 		}
 	},
+
+	async validate() {
+		try {
+		  	const response = await apiService.get('validate');
+		  	const userId = response.userId;
+	  
+		  	console.log(userId);
+		  	store.commit('setUserId', userId);
+	  
+		  	return userId;
+		} catch (error) {
+		  	throw error;
+		}
+	},	  
 };
