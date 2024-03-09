@@ -39,7 +39,7 @@
                                     <img :src="getIcon(animal.selected)" alt="" width="24" height="24">
                                 </td>
                                 <td>
-                                    <select v-model="animal.selected" class="input-blanc" @click="resetSelection(index)">
+                                    <select v-model="animal.selected" class="input-blanc">
                                         <option disabled value="">Sélectionnez un animal</option>
                                         <option v-for="option in animalOptions" :key="option" :value="option">{{ option }}</option>
                                     </select>
