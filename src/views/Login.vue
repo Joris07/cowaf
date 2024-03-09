@@ -14,6 +14,7 @@
 					<img :src="passwordFieldType === 'password' ? eyeIcon : eyeOffIcon" width="20" height="20" alt="Toggle Password Visibility">
 				</span>
 			</div>
+			<button @click="cookie">CLIQUE</button>
 		</div>
 	</div>
 	<div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
@@ -26,12 +27,12 @@ import { authService } from '@/services/authService';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { ref, computed } from 'vue';
+import Cookies from 'js-cookie';
 
 export default {
 	name: 'Login',
 	components: { BackButton },
 	setup() {
-		const store = useStore();
 		const router = useRouter();
 		
 		const email = ref('');
@@ -60,17 +61,17 @@ export default {
 					return;
 				}
 				
-				const { token } = await authService.login({ email: email.value, password: password.value });
-				
-				store.dispatch('loginUser', { token });
-				console.log(store);
+				await authService.login({ email: email.value, password: password.value });
+
 				// router.push('/dashboard');
 			} catch (error) {
-				//console.error('Login failed:', error);
 				errorMessage.value = 'Mauvais identifiants';
 			}
 		};
 
+		const cookie = () => {
+			console.log(Cookies.get('BEARER'));
+		}
 
 		return {
 			email,
@@ -82,7 +83,8 @@ export default {
 			eyeOffIcon,
 			checkBoxIcon,
 			togglePasswordVisibility,
-			login
+			login,
+			cookie
 		};
 	}
 };

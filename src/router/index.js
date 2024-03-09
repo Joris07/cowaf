@@ -44,12 +44,12 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 	const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-	const isAuthenticated = store.getters.isAuthenticated;
-
-	if (requiresAuth && !isAuthenticated) {
+	console.log(Cookies.get('BEARER'));
+  
+	if (requiresAuth && !(Cookies.get('BEARER'))) {
 	  	next('/login');
 	} else {
-	  	next();
+		next();
 	}
 });
 

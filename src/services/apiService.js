@@ -18,28 +18,25 @@ export const apiService = {
 
 	async post(endpoint, data) {
 		try {
-		  const response = await fetch(`${BASE_URL}/${endpoint}`, {
-			method: 'POST',
-			headers: {
-			  'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(data),
-		  });
-	  
-		  console.log(response);
-	  
-		  if (!response.ok) {
-			throw new Error(`HTTP error! Status: ${response.status}`);
-		  }
-	  
-		  // Vérifier si le corps de la réponse est vide
-		  const responseBody = await response.text();
-		  const parsedResponse = responseBody ? JSON.parse(responseBody) : null;
-	  
-		  return parsedResponse;
+			const response = await fetch(`${BASE_URL}/${endpoint}`, {
+				method: 'POST',
+				credentials : 'include',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(data),
+			});
+		
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+		
+			const responseBody = await response.text();
+			const parsedResponse = responseBody ? JSON.parse(responseBody) : null;
+		
+			return parsedResponse;
 		} catch (error) {
-		  throw new Error('Erreur');
+		throw new Error('Erreur');
 		}
-	  }
-	  ,
+	},
 };
