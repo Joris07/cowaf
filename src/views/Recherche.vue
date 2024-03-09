@@ -227,7 +227,6 @@
         -webkit-appearance: none; /* Pour Chrome */
         appearance: none;
         padding-right: 30px; /* Ajustez selon la taille de l'icône de calendrier */
-        background: url('/path/to/your/custom/icon') no-repeat right, white; /* Facultatif: Ajoutez votre propre icône de calendrier */
         cursor: pointer; /* Pour indiquer que l'élément est interactif */
     }
 
