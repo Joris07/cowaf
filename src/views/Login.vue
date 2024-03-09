@@ -61,7 +61,7 @@ export default {
 				
 				await authService.login({ email: email.value, password: password.value });
 
-				router.push('/rechercher');
+				router.push('/recherche');
 			} catch (error) {
 				errorMessage.value = 'Mauvais identifiants';
 			}

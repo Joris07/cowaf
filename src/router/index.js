@@ -86,7 +86,6 @@ router.beforeEach(async (to, from, next) => {
 	if (requiresAuth) {
 		try {
 			const userId = await authService.validate();
-			
 			if (userId && userId !== 0) {
 				next();
 			} else {
