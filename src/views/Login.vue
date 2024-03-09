@@ -72,7 +72,7 @@ export default {
 
 		const cookie = async () => {
 			try {
-				const response = await apiService.get('animals');
+				const response = await apiService.get('users');
 				console.log(response);
 			} catch (error) {
 				console.error('ERROR', error);
