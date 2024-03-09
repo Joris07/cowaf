@@ -30,21 +30,36 @@
                             <td class="tiret"></td>
                         </tr>
 
-                        <tr>
-                            <td><img src="/img/icon-chat.png" alt=""></td>
-                            <td>
-                                <input list="animals" type="text" id="date" class="input-blanc" placeholder="Chat">
-                                <datalist id="animals">
+                        <template v-for="(animal, index) in animals" :key="index">
+                            <tr>
+                                <td>
+                                    <img :src="getIcon(animal.selected)" alt="" width="24" height="24">
+                                </td>
+                                <!-- <td>
+                                <input list="animal-options" class="input-blanc" placeholder="Chat" v-model="animal.selected">
+                                <datalist id="animal-options">
+                                    <option value="Chat"></option>
                                     <option value="Chien"></option>
                                     <option value="Tortue"></option>
                                 </datalist>
-                            </td>
-                            <td class="tiret-hori"></td>
-                            <td><input type="number" id="nombre" class="input-blanc" placeholder="0"></td>
-                        </tr>
+                                </td> -->
+                                <td>
+                                    <select v-model="animal.selected" class="input-blanc" @click="resetSelection(index)">
+                                        <option disabled value="">Sélectionnez un animal</option>
+                                        <option v-for="option in animalOptions" :key="option" :value="option">{{ option }}</option>
+                                    </select>
+                                </td>
+                                <td class="tiret-hori"></td>
+                                <td><input type="number" class="input-blanc" placeholder="0" v-model="animal.number"></td>
+                            </tr>
+                            <!-- Ajout du tiret après chaque ligne d'animal -->
+                            <tr v-if="index < animals.length - 1"> <!-- Ne pas ajouter après le dernier élément -->
+                                <td colspan="4" class="tiret"></td>
+                            </tr>
+                        </template>
                     </tbody>
                 </table>
-                <img src="/img/plus-bleu.png" alt="">
+                <img src="/img/plus-bleu.png" alt="Plus" @click="addRow">
             </div>
             <button id="chercher" class="bold">Chercher un trajet</button>
         </div>
@@ -54,7 +69,7 @@
                 <tr class="trajet-tr">
                     <td><img src="/img/icon-historique.png" alt=""></td>
                     <td>
-                        <p>t dzdazdadadad -> zzadazdazdfrgegherhe</p>
+                        <p>La Flèche, 72200 -> Angers, 49000</p>
                         <p class="date-trajet">9 janvier 2024</p>
                     </td>
                     <td><img src="/img/arrow-right.png" alt=""></td>
@@ -63,7 +78,7 @@
                 <tr class="trajet-tr">
                     <td><img src="/img/icon-historique.png" alt=""></td>
                     <td>
-                        <p>t dzdazdadadad -> zzadazdazdfrgegherhe</p>
+                        <p>Le-Vieil-Baugé, 49150 -> La Flèche, 72200</p>
                         <p class="date-trajet">9 janvier 2024</p>
                     </td>
                     <td><img src="/img/arrow-right.png" alt=""></td>
@@ -80,7 +95,25 @@
 
 	export default {
 		name: 'Home',
-		components: { BackButton, Nav}
+		components: { BackButton, Nav},
+        data() {
+			return {
+                animals: [{ selected: '', number: 0 }],
+                animalOptions: ['Chat','Chien', 'Tortue'],
+            };
+		},
+		methods: {
+			addRow() {
+                this.animals.push({ selected: '', number: 0 });
+            },
+            getIcon(animal) {
+                if (animal === 'Chien') {
+                    return '/img/icon-chient.png';
+                } else {
+                    return '/img/icon-chat.png';
+                }
+            }
+		},
 	};
 </script>
 
@@ -91,7 +124,7 @@
 		align-items: center;
         height: 100vh;
         background-color: var(--color-off-white);
-        padding: 150px 0px 500px 0px;
+        padding: 150px 0px 100px 0px;
 	}
 
     .column-flex-center {
