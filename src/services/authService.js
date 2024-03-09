@@ -4,10 +4,15 @@ import store from '@/store';
 export const authService = {
 	async login(credentials) {
 		try {
-			await apiService.post('login', credentials);
+			const response = await apiService.post('login', credentials);
+
+			if (response && 'message' in response) {
+				throw new Error('Mauvais identifiants');
+			}
+
+			return response;
 		} catch (error) {
-			console.error('Login failed:', error);
-			throw error; 
+			throw error;
 		}
 	},
 
@@ -16,16 +21,18 @@ export const authService = {
 			await apiService.post('register', userData);
 		} catch (error) {
 			console.error('Registration failed:', error);
-			throw error; 
 		}
 	},
 
 	async validate() {
 		try {
 		  	const response = await apiService.get('validate');
+
+			if (!response.userId) {
+				return 0;
+			}
+
 		  	const userId = response.userId;
-	  
-		  	console.log(userId);
 		  	store.commit('setUserId', userId);
 	  
 		  	return userId;

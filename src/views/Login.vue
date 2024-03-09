@@ -20,6 +20,7 @@
 	<button class="button-border-blue bold" @click="login">Se connecter</button>
 </div>
 </template>
+
 <script>
 import BackButton from '@/components/BackButton.vue';
 import { authService } from '@/services/authService';
@@ -60,7 +61,7 @@ export default {
 				
 				await authService.login({ email: email.value, password: password.value });
 
-				// router.push('/dashboard');
+				router.push('/');
 			} catch (error) {
 				errorMessage.value = 'Mauvais identifiants';
 			}

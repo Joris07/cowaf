@@ -12,6 +12,7 @@ import Depart from '@/views/Publier/Depart.vue'
 import Arriver from '@/views/Publier/Arriver.vue'
 import Prix from '@/views/Publier/Prix.vue'
 import Login from '@/views/Login.vue';
+import Trajets from '@/views/Trajets.vue';
 import { authService } from '@/services/authService';
 
 const router = createRouter({
@@ -36,8 +37,32 @@ const router = createRouter({
 		meta: { requiresAuth: true }
 	},
 	{
+		path: '/rechercher',
+		component: Recherche
+	},
+	{
+		path: '/profil',
+		component: Profil
+	},
+	{
+		path: '/trajets',
+		component: Trajets
+	},
+	{
+		path: '/publier',
+		component: Depart
+	},
+	{
 		path: "/:pathMatch(.*)*",
-		redirect: "/"
+		redirect: async (to) => {	
+			const userId = await authService.validate();
+		
+			if (userId && userId !== 0) {
+			  	return "/rechercher";
+			} else {
+			  	return "/";
+			}
+		}
 	}
   ]
 })
@@ -48,15 +73,13 @@ router.beforeEach(async (to, from, next) => {
 	if (requiresAuth) {
 		try {
 			const userId = await authService.validate();
-			console.log(userId + " router ");
 			
-			if (userId) {
+			if (userId && userId !== 0) {
 				next();
 			} else {
 				next('/login');
 			}
 		} catch (error) {
-			console.error('Erreur de validation du token:', error);
 			next('/login');
 		}
 	} else {
