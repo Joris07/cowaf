@@ -56,7 +56,7 @@ const router = createRouter({
 	{
 		path: '/recherche',
 		component: Recherche,
-		// meta: { requiresAuth: true }
+		meta: { requiresAuth: true }
 	},
 	{
 		path: '/profil',
