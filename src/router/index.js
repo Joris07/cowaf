@@ -46,6 +46,10 @@ const router = createRouter({
 	  component: Register
 	},
 	{
+		path: '/profil',
+		component: Profil
+	},
+	{
 		path: '/telephone',
 		component: Telephone
 	},

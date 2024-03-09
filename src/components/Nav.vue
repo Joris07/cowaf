@@ -15,7 +15,7 @@
 				routes: [
 					{ path: '/trajets', icon: 'nav-localisations', texte: 'Mes trajets', id : "1" },
 					{ path: '/publier', icon: 'nav-plus', texte: 'Publier', id : "2"},
-					{ path: '/rechercher', icon: 'nav-localisation', texte: 'Rechercher', id : "3" },
+					{ path: '/recherche', icon: 'nav-localisation', texte: 'Rechercher', id : "3" },
 					{ path: '/messages', icon: 'nav-message', texte: 'Messages', id : "4" },
 					{ path: '/profil', icon: 'nav-profil', texte: 'Profil', id : "5" }
 				]
