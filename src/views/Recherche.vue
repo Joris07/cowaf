@@ -45,7 +45,7 @@
                                     </select>
                                 </td>
                                 <td class="tiret-hori"></td>
-                                <td><input type="number" class="input-blanc" placeholder="0" v-model="animal.number"></td>
+                                <td style="width: 20%;"><input type="number" class="input-blanc" placeholder="0" min="0" max="9" v-model="animal.number"></td>
                             </tr>
                             <!-- Ajout du tiret après chaque ligne d'animal -->
                             <tr v-if="index < animals.length - 1"> <!-- Ne pas ajouter après le dernier élément -->
