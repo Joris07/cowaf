@@ -1,5 +1,4 @@
 <template>
-    <BackButton></BackButton>
 	<div id="main">
 		<h1 class="title-publier bold">D’où partez-vous ?</h1>
         <div class="search-barre">
@@ -30,11 +29,10 @@
   
 <script>
     import Nav from '@/components/Nav.vue';
-    import BackButton from '@/components/BackButton.vue';
 
 	export default {
 		name: 'Profil',
-		components: { Nav, BackButton }
+		components: { Nav }
 	};
 </script>
 
