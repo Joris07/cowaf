@@ -34,10 +34,6 @@ const router = createRouter({
 		component: Bienvenue
 	},
 	{
-		path: '/recherche',
-		component: Recherche
-	},
-	{
 		path: '/photoprofil',
 		component: PhotoProfil
 	},
@@ -54,7 +50,7 @@ const router = createRouter({
 		component: Telephone
 	},
 	{
-		path: '/rechercher',
+		path: '/recherche',
 		component: Recherche,
 		meta: { requiresAuth: true }
 	},
@@ -75,7 +71,7 @@ const router = createRouter({
 	},
 	{
 		path: "/:pathMatch(.*)*",
-		redirect: '/rechercher'
+		redirect: '/recherche'
 	}
   ]
 })

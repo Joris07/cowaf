@@ -51,21 +51,25 @@ export default {
 		});
 
 		const login = async () => {
-			try {
-				errorMessage.value = '';
-				
-				if (!isValidForm.value) {
-					errorMessage.value = 'Veuillez remplir tous les champs';
-					return;
-				}
-				
-				await authService.login({ email: email.value, password: password.value });
+		try {
+			errorMessage.value = '';
+			
+			if (!isValidForm.value) {
+				errorMessage.value = 'Veuillez remplir tous les champs';
+				return;
+			}
+			
+			await authService.login({ email: email.value, password: password.value });
 
+			setTimeout(() => {
 				router.push('/recherche');
+			}, 500);
+
 			} catch (error) {
 				errorMessage.value = 'Mauvais identifiants';
 			}
 		};
+
 
 		return {
 			email,
