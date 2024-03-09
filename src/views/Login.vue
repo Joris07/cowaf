@@ -28,6 +28,7 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { ref, computed } from 'vue';
 import Cookies from 'js-cookie';
+import { apiService } from '@/services/apiService';
 
 export default {
 	name: 'Login',
@@ -69,8 +70,14 @@ export default {
 			}
 		};
 
-		const cookie = () => {
-			console.log(Cookies.get('BEARER'));
+		const cookie = async () => {
+			try {
+				const response = await apiService.get('animals');
+				console.log(response);
+			} catch (error) {
+				console.error('ERROR', error);
+				throw error;
+			}
 		}
 
 		return {
