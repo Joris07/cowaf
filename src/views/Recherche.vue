@@ -50,7 +50,6 @@
                             <tr v-if="index < animals.length - 1">
                                 <td colspan="4" class="tiret"></td>
                             </tr>
-                            <input type="text" id="autocomplete">
                         </template>
                     </tbody>
                 </table>

@@ -34,6 +34,8 @@ export const authService = {
 
 		  	const userId = response.userId;
 		  	store.commit('setUserId', userId);
+
+			console.log(store.getters.getUserId);
 	  
 		  	return userId;
 		} catch (error) {
