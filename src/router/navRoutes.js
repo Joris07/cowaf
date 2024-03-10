@@ -4,7 +4,7 @@ import Discussion from '@/views/Discussion.vue';
 import Profil from '@/views/Profil.vue';
 import Depart from '@/views/Publier/Depart.vue';
 
-const auth = false; // Mettre a true pour la version de production
+const auth = true; // Mettre a true pour la version de production
 
 export default [
     {

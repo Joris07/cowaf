@@ -1,14 +1,7 @@
 import {createRouter, createWebHistory } from 'vue-router';
-import store from '../store';
 import Home from '../views/Home.vue';
-import Register from '../views/Register.vue';
-import Animal from '@/views/Animal.vue';
-import Bougies from '@/views/Bougies.vue';
 import FicheAnimal from '@/views/FicheAnimal.vue';
 import Arriver from '@/views/Publier/Arriver.vue';
-import Bienvenue from '@/views/Bienvenue.vue';
-import PhotoProfil from '@/views/PhotoProfil.vue';
-import Telephone from '@/views/Telephone.vue';
 import Prix from '@/views/Publier/Prix.vue'
 import Login from '@/views/Login.vue';
 import navRoutes from './navRoutes';
@@ -32,7 +25,6 @@ const router = createRouter({
 		path: '/ficheanimal',
 		component: FicheAnimal
 	},
-	
 	{
 		path: '/arriver',
 		component: Arriver

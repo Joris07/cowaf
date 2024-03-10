@@ -2,8 +2,9 @@
 	<div id="main">
 		<BackButton />
 
-		<div id="container-photo">
+		<div id="container-photo" @click="onFileSelected">
 			<div id="ellipse-container">
+				
 				<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186" viewBox="0 0 186 186" fill="none">
 					<circle cx="93" cy="93" r="93" fill="#E7EDF4"/>
 				</svg>

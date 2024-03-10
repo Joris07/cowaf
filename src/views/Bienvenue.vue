@@ -34,7 +34,7 @@
                 this.$router.push('/recherche');
             },
             goToAnimal(){
-                this.$router.push('/ficheanimal');
+                this.$router.push('/animal');
             }
         }
 	};

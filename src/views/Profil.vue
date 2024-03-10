@@ -23,7 +23,7 @@
         <div id="bottom">
             <h4 class="bold blue-text title">Mes animaux</h4>
             <div id="animaux">
-                <div>
+                <div @click="showAnimal">
                     <img class="photos-animaux" src="/img/lumo-petit.png" alt="">
                     <span class="nom-animal">Lumo</span>
                 </div>
@@ -39,7 +39,12 @@
 
 	export default {
 		name: 'Profil',
-		components: { Nav }
+		components: { Nav },
+        methods: {
+            showAnimal() {
+                this.$router.push('/ficheanimal');
+            }
+        }
 	};
 </script>
 

@@ -2,27 +2,32 @@
 	<div id="main">
 		<div id="main-second">
 			<div class="vingtdeux">
-				<input type="text" id="nom" placeholder="Nom de l'animal">
-				<div id="container-photo">
+				<input type="text" v-model="nomAnimal" id="nom" placeholder="Nom de l'animal" maxlength="15">
+				<div id="container-photo" >
 					<label for="fileInput" id="button-file">
-						<input type="file" id="fileInput" style="display: none;" />
+						<input type="file" id="fileInput" ref="fileInput" style="display: none;" @change="onFileSelected"/>
 						<div id="rectangle">
-							<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg v-if="!selectedImageUrl" width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<circle cx="22.5" cy="22.5" r="21" stroke="#B7B4B4" stroke-width="3"/>
 								<path d="M30.064 21.4731V24.481H23.6553V30.8896H20.6475V24.481H14.2388V21.4731H20.6475V15.0645H23.6553V21.4731H30.064Z" fill="#B7B4B4"/>
 							</svg>
+							<img v-if="selectedImageUrl" :src="selectedImageUrl" alt="Aperçu de l'image" style="width: 100%; height: 100%;">
 						</div>
 					</label>
 				</div>
+				<h4>Choisissez une photo où l’on voit bien votre animal</h4>
 			</div>
 			
-			<h4>Choisissez une photo où l’on voit bien votre animal</h4>
+			
 			<div class="vingtdeux">
 				<h1 class="bold">Son permis</h1>
 				<div id="permis">
-					<span id="photo-permis"></span>
+					<span id="photo-permis">
+						<img v-if="selectedImageUrl" :src="selectedImageUrl" alt="Aperçu de l'image" style="width: 100%; height: 100%;">
+					</span>
 					<div id="texte">
-						<span id="nom-permis"></span>
+						<span id="nom-permis" v-if="!nomAnimal"></span>
+						<div id="nom-animal" v-if="nomAnimal">{{ nomAnimal }}</div>
 						<span id="age-permis"></span>
 						<div id="description-permis">
 							<span class="description"></span>
@@ -35,9 +40,37 @@
 			</div>
 		</div>
 		
-		<button class="bold button-off-white">Étape suivante</button>
+		<button class="bold button-off-white" @click="nextStep">Étape suivante</button>
 	</div>
 </template>
+
+<script>
+
+export default {
+		name: 'Animal',
+		data() {
+			return {
+				nomAnimal: '',
+				selectedImageUrl: null,
+			};
+		},
+		methods: {
+			onFileSelected() {
+				const files = this.$refs.fileInput.files;
+				if (files.length === 0) {
+					this.selectedImageUrl = null;
+					return;
+				}
+				const file = files[0];	
+				this.selectedImageUrl = URL.createObjectURL(file);
+			},
+			nextStep() {
+				this.$router.push('/bougies');
+			}
+		}
+	}
+
+</script>
   
 <style scoped>
 	#main {
@@ -45,7 +78,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 30px;
+		gap: 40px;
 	}
 
 	.vingtdeux {
@@ -59,7 +92,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 22px;
+		gap: 40px;
 	}
 
 	#nom {
@@ -71,6 +104,17 @@
 		border : none;
 		outline: none;
 	}
+
+	#nom-animal {
+		width: 100%;
+		caret-color: var(--color-blue);
+		color: var(--color-blue);
+		font-weight: 700;
+		border : none;
+		outline: none;
+		font-size: unset;
+	}
+
 
 	#nom::placeholder {
 		color: #C7C7C7;
