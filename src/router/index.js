@@ -54,6 +54,14 @@ const router = createRouter({
 		component: Telephone
 	},
 	{
+		path: '/arriver',
+		component: Arriver
+	},
+	{
+		path: '/prix',
+		component: Prix
+	},
+	{
 		path: '/recherche',
 		component: Recherche,
 		meta: { requiresAuth: true }
