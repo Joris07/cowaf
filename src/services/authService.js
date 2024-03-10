@@ -1,5 +1,4 @@
 import { apiService } from './apiService';
-import store from '@/store';
 
 export const authService = {
 	async login(credentials) {
@@ -31,9 +30,6 @@ export const authService = {
 			if (!response.userId) {
 				return 0;
 			}
-
-		  	const userId = response.userId;
-		  	store.commit('setUserId', userId);
 	  
 		  	return userId;
 		} catch (error) {

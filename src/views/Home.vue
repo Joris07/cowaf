@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="main">
 		<img src="/img/dog-accueil.png" alt="dog accueil" id="dog-accueil">
 		<div id="bottom">
 			<div id="title">
@@ -96,6 +96,16 @@
 
 		#bottom {
 			margin-top: 0%;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		#dog-accueil {
+			display: none;
+		}
+
+		#main {
+			padding-top: 100px;
 		}
 	}
 </style>

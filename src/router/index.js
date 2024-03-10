@@ -16,6 +16,7 @@ import Telephone from '@/views/Telephone.vue';
 import Prix from '@/views/Publier/Prix.vue'
 import Login from '@/views/Login.vue';
 import Trajets from '@/views/Trajets.vue';
+import Discussion from '@/views/Discussion.vue';
 import { authService } from '@/services/authService';
 
 const router = createRouter({
@@ -79,6 +80,11 @@ const router = createRouter({
 	{
 		path: '/publier',
 		component: Depart,
+		meta: { requiresAuth: true }
+	},
+	{
+		path: '/messages',
+		component: Discussion,
 		meta: { requiresAuth: true }
 	},
 	{
