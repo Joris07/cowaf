@@ -50,9 +50,14 @@
                 }
             },
             async geocodeLatLng(lat, lng) {
-                // Exemple de fonction de géocodage, à remplacer par votre logique/API
-                // TO DO API Géolocalisation
-                return `lat: ${lat}, lng: ${lng}`;
+                try {
+                    const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+                    const data = await response.json();
+                    return data.name + ', ' + data.address.postcode + ' ' + data.address.municipality; // Ou retourner l'objet data complet si nécessaire
+                } catch (error) {
+                    console.error('Error:', error);
+                    return 'Erreur'; // Gérer l'erreur d'une manière appropriée
+                }
             }
         }
 	};
@@ -81,5 +86,10 @@
         align-items: center;
         gap: 10px;
     }
+
+    .input-search {
+        width: 100%;
+    }
+    
 </style>
   

@@ -36,7 +36,7 @@
                         <template v-for="(animal, index) in animals" :key="index">
                             <tr>
                                 <td>
-                                    <img :src="getIcon(animal.selected)" alt="" width="24" height="24">
+                                    <img :src="getIcon(animal.selected)" alt="Icone Animal" width="24" height="24">
                                 </td>
                                 <td>
                                     <select v-model="animal.selected" class="input-blanc">
@@ -94,7 +94,11 @@
             getIcon(animal) {
                 if (animal === 'Chien') {
                     return '/img/icon-chien.png';
-                } else {
+                } 
+                else if (animal === 'Tortue') {
+                    return '/img/icon-tortue.png';
+                }
+                else {
                     return '/img/icon-chat.png';
                 }
             },
