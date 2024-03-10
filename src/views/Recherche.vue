@@ -83,7 +83,8 @@
         data() {
 			return {
                 animals: [{ selected: '', number: 0 }],
-                animalOptions: ['Chat','Chien', 'Tortue']
+                animalOptions: ['Chat','Chien', 'Tortue'],
+                trajets: []
             };
 		},
 		methods: {
@@ -112,6 +113,9 @@
                 });
             },
 		},
+        mounted() {
+            this.fetchTrajets();
+        },
 	};
 </script>
 
