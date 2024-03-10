@@ -31,7 +31,7 @@ export const authService = {
 				return 0;
 			}
 	  
-		  	return userId;
+		  	return response.userId;
 		} catch (error) {
 		  	throw error;
 		}
