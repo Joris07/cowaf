@@ -1,5 +1,4 @@
 import { apiService } from './apiService';
-import store from '@/store';
 
 export const authService = {
 	async login(credentials) {
@@ -33,9 +32,7 @@ export const authService = {
 			}
 
 		  	const userId = response.userId;
-		  	store.commit('setUserId', userId);
-
-			console.log(store.getters.getUserId);
+		  	sessionStorage.setItem("userId", userId);
 	  
 		  	return userId;
 		} catch (error) {

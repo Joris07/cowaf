@@ -86,9 +86,6 @@
 <script>
 	import BackButton from '@/components/BackButton.vue';
     import Nav from '@/components/Nav.vue';
-    import store from '@/store';
-    
-    console.log(store.getters.getUserId);
 
 	export default {
 		name: 'Home',
