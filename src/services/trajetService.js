@@ -1,6 +1,6 @@
 import { apiService } from './apiService';
 
-export const authService = {
+export const trajetService = {
 	async trajetsParticipes() {
 		try {
 			const response = await apiService.post('trajets/participate');

@@ -75,7 +75,7 @@
 <script>
 	import BackButton from '@/components/BackButton.vue';
     import Nav from '@/components/Nav.vue';
-    import trajetService from '@/services/trajetService.js';
+    import { trajetService } from '@/services/trajetService';
 
 	export default {
 		name: 'Home',
