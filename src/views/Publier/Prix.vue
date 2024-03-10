@@ -3,7 +3,7 @@
 	<div id="main">
         <div id="top" class="left">
            <div class="search-barre">
-                <input value="12, Rue Georges Mandel, Angers, ..." class="input-search" type="text" >
+                <input value="12, Rue Georges Mandel, Angers" class="input-search" type="text" >
             </div> 
         </div>
         <h1 class="title-publier left bold">Fixer le prix du trajet</h1>
@@ -38,7 +38,7 @@
 		components: { Nav, BackButton },
         data() {
             return {
-                prixValeur: 15 // Initial value for the price
+                prixValeur: 15
             };
         },
         methods: {

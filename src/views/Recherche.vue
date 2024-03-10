@@ -40,7 +40,7 @@
                                 </td>
                                 <td>
                                     <select v-model="animal.selected" class="input-blanc">
-                                        <option disabled value="">Sélectionnez un animal</option>
+                                        <option disabled value="">Sélectionnez</option>
                                         <option v-for="option in animalOptions" :key="option" :value="option">{{ option }}</option>
                                     </select>
                                 </td>
@@ -59,25 +59,14 @@
         </div>
 
         <table id="historique" class="column-flex-center">
-            <tbody class="column-flex-center" style="gap: 20px;">
-                <tr class="trajet-tr">
-                    <td><img src="/img/icon-historique.png" alt=""></td>
-                    <td>
-                        <p>La Flèche, 72200 -> Angers, 49000</p>
-                        <p class="date-trajet">9 janvier 2024</p>
-                    </td>
-                    <td><img src="/img/arrow-right.png" alt=""></td>
-                </tr>
-
-                <tr class="trajet-tr">
-                    <td><img src="/img/icon-historique.png" alt=""></td>
-                    <td>
-                        <p>Le-Vieil-Baugé, 49150 -> La Flèche, 72200</p>
-                        <p class="date-trajet">9 janvier 2024</p>
-                    </td>
-                    <td><img src="/img/arrow-right.png" alt=""></td>
-                </tr>
-            </tbody>
+            <tr v-for="trajet in trajets" :key="trajet.id" class="trajet-tr">
+                <td><img src="/img/icon-historique.png" alt=""></td>
+                <td>
+                    <p>{{ trajet.lieuDepart }} -> {{ trajet.lieuDestination }}</p>
+                    <p class="date-trajet">{{ formatDate(trajet.dateHeureDepart) }}</p>
+                </td>
+                <td><img src="/img/arrow-right.png" alt=""></td>
+            </tr>
         </table>
     </div>
     <Nav selectedIcon="3"></Nav>
@@ -106,7 +95,21 @@
                 } else {
                     return '/img/icon-chat.png';
                 }
-            }
+            },
+            async fetchTrajets() {
+                try {
+                    this.trajets = await trajetService.trajetsParticipes();
+                } catch (error) {
+                    throw error;
+                }
+            },
+            formatDate(dateString) {
+                return new Date(dateString).toLocaleDateString('fr-FR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                });
+            },
 		},
 	};
 </script>
