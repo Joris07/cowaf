@@ -46,7 +46,7 @@
 
 <script>
 
-export default {
+	export default {
 		name: 'Animal',
 		data() {
 			return {
@@ -62,9 +62,17 @@ export default {
 					return;
 				}
 				const file = files[0];	
-				this.selectedImageUrl = URL.createObjectURL(file);
+				// this.selectedImageUrl = URL.createObjectURL(file);
+				const reader = new FileReader();
+				reader.onload = (e) => {
+					this.selectedImageUrl = e.target.result;
+					// Enregistrement de l'URL de l'image en base64 dans LocalStorage
+					localStorage.setItem('selectedImage', e.target.result);
+				};
+				reader.readAsDataURL(file);
 			},
 			nextStep() {
+				localStorage.setItem('nomAnimal', this.nomAnimal);
 				this.$router.push('/bougies');
 			}
 		}

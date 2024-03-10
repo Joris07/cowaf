@@ -11,9 +11,12 @@
 			<div class="vingtdeux">
 				<h1 class="bold">Son permis</h1>
 				<div id="permis">
-					<span id="photo-permis"></span>
+					<span id="photo-permis">
+						<img v-if="selectedImageUrl" :src="selectedImageUrl" alt="Aperçu de l'image" style="width: 100%; height: 100%;">
+					</span>
 					<div id="texte">
-						<span id="nom-permis"></span>
+						<span id="nom-permis" v-if="!nomAnimal"></span>
+						<div id="nom-animal" v-if="nomAnimal">{{ nomAnimal }}</div>
 						<span id="age-permis"></span>
 						<div id="description-permis">
 							<span class="description"></span>
@@ -29,6 +32,22 @@
 		<button class="bold button-off-white">Valider</button>
 	</div>
 </template>
+<script>
+	export default {
+		name: 'Bougies',
+		data() {
+			return {
+				nomAnimal: '',
+				selectedImageUrl: null,
+			};
+		},
+		created() {
+			// Récupération du nom et de l'image de l'animal
+			this.nomAnimal = localStorage.getItem('nomAnimal');
+			this.selectedImageUrl = localStorage.getItem('selectedImage');
+		}
+	}
+</script>
   
 <style scoped>
 	#main {
@@ -88,6 +107,16 @@
 		height: 14px;
 		border-radius: 100px;
 		background: #D9D9D9;
+	}
+
+	#nom-animal {
+		width: 100%;
+		caret-color: var(--color-blue);
+		color: var(--color-blue);
+		font-weight: 700;
+		border : none;
+		outline: none;
+		font-size: unset;
 	}
 
 	#age-permis {
