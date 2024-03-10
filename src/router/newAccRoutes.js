@@ -4,6 +4,7 @@ import Register from "@/views/Register.vue";
 import Telephone from "@/views/Telephone.vue";
 import Animal from "@/views/Animal.vue";
 import Bougies from "@/views/Bougies.vue";
+import TraitAnimal from "@/views/TraitAnimal.vue";
 
 export default [
     {
@@ -29,5 +30,9 @@ export default [
 	{
 		path: '/bougies',
 		component: Bougies
+	},
+	{
+		path: '/traitanimal',
+		component: TraitAnimal
 	},
 ];

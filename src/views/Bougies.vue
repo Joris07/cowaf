@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		
-		<button class="bold button-off-white">Valider</button>
+		<button class="bold button-off-white" @click="nextStep">Valider</button>
 	</div>
 </template>
 <script>
@@ -40,6 +40,11 @@
 				nomAnimal: '',
 				selectedImageUrl: null,
 			};
+		},
+		methods: {
+			nextStep(){
+				this.$router.push('/TraitAnimal');
+			}
 		},
 		created() {
 			// Récupération du nom et de l'image de l'animal
