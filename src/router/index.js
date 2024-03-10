@@ -1,27 +1,25 @@
-import {createRouter, createWebHistory } from 'vue-router'
+import {createRouter, createWebHistory } from 'vue-router';
 import store from '../store';
-import Home from '../views/Home.vue'
-import Register from '../views/Register.vue'
-import Animal from '@/views/Animal.vue'
-import Bougies from '@/views/Bougies.vue'
-import Description from '@/views/Description.vue'
-import FicheAnimal from '@/views/FicheAnimal.vue'
-import Recherche from '@/views/Recherche.vue'
-import Profil from '@/views/Profil.vue'
-import Depart from '@/views/Publier/Depart.vue'
-import Arriver from '@/views/Publier/Arriver.vue'
+import Home from '../views/Home.vue';
+import Register from '../views/Register.vue';
+import Animal from '@/views/Animal.vue';
+import Bougies from '@/views/Bougies.vue';
+import FicheAnimal from '@/views/FicheAnimal.vue';
+import Arriver from '@/views/Publier/Arriver.vue';
 import Bienvenue from '@/views/Bienvenue.vue';
 import PhotoProfil from '@/views/PhotoProfil.vue';
 import Telephone from '@/views/Telephone.vue';
 import Prix from '@/views/Publier/Prix.vue'
 import Login from '@/views/Login.vue';
-import Trajets from '@/views/Trajets.vue';
-import Discussion from '@/views/Discussion.vue';
+import navRoutes from './navRoutes';
+import newAccRoutes from './newAccRoutes';
 import { authService } from '@/services/authService';
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
+	...navRoutes,
+	...newAccRoutes,
 	{
 		path: '/',
 		component: Home
@@ -34,26 +32,7 @@ const router = createRouter({
 		path: '/ficheanimal',
 		component: FicheAnimal
 	},
-	{
-		path: '/bienvenue',
-		component: Bienvenue
-	},
-	{
-		path: '/photoprofil',
-		component: PhotoProfil
-	},
-	{
-	  path: '/register',
-	  component: Register
-	},
-	{
-		path: '/profil',
-		component: Profil
-	},
-	{
-		path: '/telephone',
-		component: Telephone
-	},
+	
 	{
 		path: '/arriver',
 		component: Arriver
@@ -61,31 +40,6 @@ const router = createRouter({
 	{
 		path: '/prix',
 		component: Prix
-	},
-	{
-		path: '/recherche',
-		component: Recherche,
-		meta: { requiresAuth: true }
-	},
-	{
-		path: '/profil',
-		component: Profil,
-		meta: { requiresAuth: true }
-	},
-	{
-		path: '/trajets',
-		component: Trajets,
-		meta: { requiresAuth: true }
-	},
-	{
-		path: '/publier',
-		component: Depart,
-		meta: { requiresAuth: true }
-	},
-	{
-		path: '/messages',
-		component: Discussion,
-		meta: { requiresAuth: true }
 	},
 	{
 		path: "/:pathMatch(.*)*",
