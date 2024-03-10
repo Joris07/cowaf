@@ -47,10 +47,10 @@
                                 <td class="tiret-hori"></td>
                                 <td style="width: 20%;"><input type="number" class="input-blanc" placeholder="0" min="0" max="9" v-model="animal.number"></td>
                             </tr>
-                            <!-- Ajout du tiret après chaque ligne d'animal -->
-                            <tr v-if="index < animals.length - 1"> <!-- Ne pas ajouter après le dernier élément -->
+                            <tr v-if="index < animals.length - 1">
                                 <td colspan="4" class="tiret"></td>
                             </tr>
+                            <input type="text" id="autocomplete">
                         </template>
                     </tbody>
                 </table>
@@ -87,6 +87,9 @@
 <script>
 	import BackButton from '@/components/BackButton.vue';
     import Nav from '@/components/Nav.vue';
+    import store from '@/store';
+    
+    console.log(store.getters.getUserId);
 
 	export default {
 		name: 'Home',
@@ -94,7 +97,7 @@
         data() {
 			return {
                 animals: [{ selected: '', number: 0 }],
-                animalOptions: ['Chat','Chien', 'Tortue'],
+                animalOptions: ['Chat','Chien', 'Tortue']
             };
 		},
 		methods: {
