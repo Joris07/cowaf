@@ -4,6 +4,15 @@
     </div>
     <Nav selectedIcon="4"></Nav>
 </template>
+
+<script>
+    import Nav from '@/components/Nav.vue';
+
+	export default {
+		name: 'Profil',
+		components: { Nav }
+	};
+</script>
   
 <style scoped>
 	#main {

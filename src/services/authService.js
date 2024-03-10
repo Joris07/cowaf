@@ -30,9 +30,6 @@ export const authService = {
 			if (!response.userId) {
 				return 0;
 			}
-
-		  	const userId = response.userId;
-		  	sessionStorage.setItem("userId", userId);
 	  
 		  	return userId;
 		} catch (error) {

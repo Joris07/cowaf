@@ -8,16 +8,16 @@
         </div>
         <h1 class="title-publier left bold">Fixer le prix du trajet</h1>
         <div id="prix">
-            <button class="arrow-button">
+            <button class="arrow-button" @click="decrementPrice">
                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
                     <path d="M2.90906 7.09086L8 12.4646L6.54545 14L6.04016e-07 7.09086L6.54545 0.181818L8 1.71716L2.90906 7.09086Z" fill="#09458E"/>
                 </svg>
             </button>
             <div id="mid-prix">
-                <input class="bold blue-text" type="number" value="15" id="prix-valeur">
+                <input class="bold blue-text" type="number" value="15" min="0" max="100" id="prix-valeur" v-model="prixValeur">
                 <h1 class="bold blue-text">€</h1>
             </div>
-            <button class="arrow-button">
+            <button class="arrow-button" @click="incrementPrice">
                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
                     <path d="M5.09094 6.90913L0 1.53535L1.45455 0L8 6.90913L1.45455 13.8182L0 12.2828L5.09094 6.90913Z" fill="#09458E"/>
                 </svg>
@@ -35,7 +35,22 @@
 
 	export default {
 		name: 'Profil',
-		components: { Nav, BackButton }
+		components: { Nav, BackButton },
+        data() {
+            return {
+                prixValeur: 15 // Initial value for the price
+            };
+        },
+        methods: {
+            incrementPrice() {
+                this.prixValeur += 1;
+            },
+            decrementPrice() {
+                if (this.prixValeur > 0) {
+                    this.prixValeur -= 1;
+                }
+            }
+        }
 	};
 </script>
 
