@@ -6,7 +6,6 @@ import Prix from '@/views/Publier/Prix.vue'
 import Login from '@/views/Login.vue';
 import navRoutes from './navRoutes';
 import newAccRoutes from './newAccRoutes';
-import Download from '@/views/Download.vue';
 import { authService } from '@/services/authService';
 
 const router = createRouter({
