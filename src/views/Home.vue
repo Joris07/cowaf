@@ -62,16 +62,16 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: 50px;
-		height: 50px;
+		width: 40px;
+		height: 40px;
 		position: absolute;
-		bottom: 2%;
-		right: 5%;
+		bottom: 1%;
+		right: 1%;
 	}
 
 	#install > img {
-		width: 30px;
-		height: 30px;
+		width: 25px;
+		height: 25px;
 	}
 
 	a {
