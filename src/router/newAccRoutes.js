@@ -18,8 +18,8 @@ export default [
 		component: PhotoProfil
 	},
 	{
-	  path: '/register',
-	  component: Register
+	  	path: '/register',
+	  	component: Register
 	},
 	{
 		path: '/telephone',

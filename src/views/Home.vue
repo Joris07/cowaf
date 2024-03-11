@@ -16,9 +16,37 @@
 				</div>
 			</div>
 		</div>
+		<div id="install">
+			<img @click="install" src="/img/download.png"></img>
+		</div>
+		
 	</div>
 </template>
 
+<script>
+	export default {
+		name: "App",
+		data() {
+			return {
+				deferredPrompt: null
+			};
+		},
+		created() {
+			window.addEventListener("beforeinstallprompt", e => {
+				e.preventDefault();
+				this.deferredPrompt = e;
+			});
+			window.addEventListener("appinstalled", () => {
+				this.deferredPrompt = null;
+			});
+		},
+		methods: {
+			async install() {
+				this.deferredPrompt.prompt();
+			}
+		}
+	};
+</script>
 
 <style scoped>
 	#buttons {
@@ -26,6 +54,24 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 20px;
+	}
+
+	#install {
+		background-color: var(--color-blue);
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		bottom: 2%;
+		right: 5%;
+	}
+
+	#install > img {
+		width: 30px;
+		height: 30px;
 	}
 
 	a {
