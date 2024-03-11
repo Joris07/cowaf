@@ -18,7 +18,7 @@
 				<input type="file" id="fileInput" @change="onFileSelected" style="display: none;" />
 			</label>
 		</div>
-		<button class="button-border-blue bold" @click="submit" style="margin-top: 40px;">Enregistrer</button>
+		<button class="button-border-blue bold" @click="submit">Valider</button>
 	</div>
 </template>
   
