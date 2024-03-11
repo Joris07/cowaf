@@ -6,9 +6,9 @@
 	  	<div id="off-white-background" class="full-height-container">
 			<div>
 				<h3 class="bold" id="titre-numero">Renseignez votre numéro de téléphone</h3>
-				<input type="text" class="input-blanc" id="nom" placeholder="ex : 0678967898">
+				<input type="text" class="input-blanc" id="nom" placeholder="ex : 0678967898" v-model="phoneNumber" @input="filterInput" maxlength="10">
 			</div>
-			<button class="button-border-blue bold">Valider</button>
+			<button class="button-border-blue bold" v-if="isValidNumber" @click="submit">Valider</button>
 		</div>
 	</div>
 </template>
@@ -18,7 +18,26 @@
 
 	export default {
 		name: 'Telephone',
-		components: { BackButton }
+		components: { BackButton },
+		methods: {
+			filterInput() {
+                this.phoneNumber = this.phoneNumber.slice(0, 10).replace(/[^0-9]/g, '');
+            },
+			submit() {
+				this.$router.push('/photoprofil');
+			}
+		},
+		data() {
+            return {
+                phoneNumber: '', // La variable liée à l'input
+            };
+        },
+        computed: {
+            isValidNumber() {
+                // Validation basique d'un numéro de téléphone français (commence par 0 et a 10 chiffres)
+                return /^0\d{9}$/.test(this.phoneNumber);
+            }
+        }
 	};
 </script>
   
@@ -30,6 +49,7 @@
 		align-items: center;
 		gap: 30px;
 		height: 100vh;
+		overflow: hidden;
 	}
   
 	#off-white-background {
@@ -66,6 +86,14 @@
 		font-size: 25px;
 		width: 225px;
 		color: black;
+	}
+
+	.input-blanc {
+		font-size: 25px;
+		width: 225px;
+		text-align: center;
+		color: var(--color-blue); /* Assurez-vous que --color-blue est défini quelque part dans votre CSS global */
+		/* Autres styles existants */
 	}
 </style>
   

@@ -2,19 +2,23 @@
 	<div id="main">
 		<BackButton />
 
-		<div id="container-photo">
+		<div id="container-photo" @click="onFileSelected">
 			<div id="ellipse-container">
+				
 				<svg xmlns="http://www.w3.org/2000/svg" width="186" height="186" viewBox="0 0 186 186" fill="none">
 					<circle cx="93" cy="93" r="93" fill="#E7EDF4"/>
 				</svg>
-				<img src="/img/image-plus.png" alt="plus image">
+				<!-- Utilisation de :src pour lier l'image choisie -->
+				<img v-if="imageUrl" :src="imageUrl" alt="profil image">
+				<!-- Image par défaut si aucune image n'est choisie -->
+				<img v-else src="/img/image-plus.png" alt="plus image">
 			</div>
 			<label for="fileInput" id="button-file">
 				Ajouter une photo de profil
-				<input type="file" id="fileInput" style="display: none;" />
+				<input type="file" id="fileInput" @change="onFileSelected" style="display: none;" />
 			</label>
 		</div>
-		<button class="button-border-blue bold">Valider</button>
+		<button class="button-border-blue bold" @click="submit">Valider</button>
 	</div>
 </template>
   
@@ -23,7 +27,24 @@
 
 	export default {
 		name: 'PhotoProfil',
-		components: { BackButton }
+		components: { BackButton },
+		data() {
+			return {
+				imageUrl: null, // Stocke l'URL de l'image choisie
+			};
+		},
+		methods: {
+			onFileSelected(event) {
+				const files = event.target.files;
+				if (files.length > 0) {
+					const file = files[0];
+					this.imageUrl = URL.createObjectURL(file); // Crée et met à jour l'URL de l'image
+				}
+			},
+			submit() {
+				this.$router.push('/bienvenue');
+			}
+		}
 	};
 </script>
   
@@ -36,6 +57,7 @@
 		gap: 30px;
 		height: 100vh;
 		justify-content: space-between;
+		overflow: hidden;
 	}
 
 	#button-file {
@@ -62,6 +84,9 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: auto;
+		max-width: 100%; 
+		max-height: 100%; /* S'assurer que l'image reste dans le cercle */
+		border-radius: 50%;
 	}
 
 	#ellipse-container {

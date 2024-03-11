@@ -18,8 +18,8 @@
                 compagnon poilu (ou non) !
             </p>
         </div>
-        <button class="button-border-blue bold">C'est parti</button>
-        <button class="bold" id="button-blue">Je souhaite uniquement effectuer les covoiturages</button>
+        <button class="button-border-blue bold" @click="goToAnimal">C'est parti</button>
+        <button class="bold" id="button-blue" @click="goToRecherche">Je souhaite uniquement effectuer les covoiturages</button>
 	</div>
 </template>
     
@@ -28,7 +28,15 @@
 
 	export default {
 		name: 'Bienvenue',
-		components: { BackButton }
+		components: { BackButton },
+        methods: {
+            goToRecherche(){
+                this.$router.push('/recherche');
+            },
+            goToAnimal(){
+                this.$router.push('/animal');
+            }
+        }
 	};
 </script>
   
@@ -39,6 +47,8 @@
 		align-items: center;
 		gap: 30px;
 		height: 100vh;
+		overflow: hidden;
+        padding-bottom: 10px;
 	}
 
     #top {

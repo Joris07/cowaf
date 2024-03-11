@@ -1,5 +1,6 @@
 <template>
 	<div id="main">
+		<BackButton />
 		<div id="top">
 			<img src="/img/lumo-grand.png" alt="Photo animal" id="photo">
 			<h1 type="text" id="nom">Lumo</h1>
@@ -16,17 +17,26 @@
 		</div>
 
 		<div id="bottom">
-			<span class="description">Test</span>
-			<span class="description">dadadaddddd</span>
-			<span class="description">adad</span>
-			<span class="description">adad</span>
+			<span class="description">Amical</span>
+			<span class="description">Joueur</span>
+			<span class="description">Facile à vivre </span>
+			<span class="description">Câlin</span>
 		</div>
 	</div>
 </template>
+
+<script>
+	import BackButton from '@/components/BackButton.vue';
+	export default {
+		name: 'FicheAnimal',
+		components: { BackButton }
+	};
+	
+</script>
   
 <style scoped>
 	#main {
-		padding: 50px 40px 20px 40px;
+		padding: 100px 40px 20px 40px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

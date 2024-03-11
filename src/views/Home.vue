@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="main">
 		<img src="/img/dog-accueil.png" alt="dog accueil" id="dog-accueil">
 		<div id="bottom">
 			<div id="title">
@@ -7,15 +7,18 @@
 				<h2 class="blue-text" id="bold-full">covoiturage animalier</h2>
 			</div>
 			<div id="buttons">
-				<button class="button-border-blue bold" @click="this.$router.push('/register')">Commencer</button>
+				<router-link to="/register">
+					<button class="button-border-blue bold">Commencer</button>
+				</router-link>
 				<div id="bottom-buttons">
-					<a id="sans-compte">Déjà un compte ?</a>
-					<button id="connexion" class="bold">Connexion</button>
+					<router-link to="/login" id="sans-compte">Déjà un compte ?</router-link>
+					<router-link to="/login" id="connexion" class="bold">Connexion</router-link>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
+
 
 <style scoped>
 	#buttons {
@@ -23,6 +26,10 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 20px;
+	}
+
+	a {
+		text-decoration: none;
 	}
 
 	#bold-full {
@@ -50,6 +57,10 @@
 		height: 44px;
 		color: white;
 		border: 2px solid var(--color-blue);
+		display: flex;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
 	}
 
 	#dog-accueil {
@@ -85,6 +96,16 @@
 
 		#bottom {
 			margin-top: 0%;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		#dog-accueil {
+			display: none;
+		}
+
+		#main {
+			padding-top: 100px;
 		}
 	}
 </style>
