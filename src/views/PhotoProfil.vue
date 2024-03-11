@@ -18,7 +18,7 @@
 				<input type="file" id="fileInput" @change="onFileSelected" style="display: none;" />
 			</label>
 		</div>
-		<button class="button-border-blue bold" @click="submit">Valider</button>
+		<button class="button-border-blue bold" @click="submit" style="margin-top: 40px;">Enregistrer</button>
 	</div>
 </template>
   
@@ -42,6 +42,7 @@
 				}
 			},
 			submit() {
+				alert("Impossible de créer de nouveau compte pour l'instant. Réessayez plus tard.")
 				this.$router.push('/bienvenue');
 			}
 		}

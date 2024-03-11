@@ -72,8 +72,11 @@
 				reader.readAsDataURL(file);
 			},
 			nextStep() {
-				localStorage.setItem('nomAnimal', this.nomAnimal);
+				localStorage.setItem('nomAnimal', this.capitalize(this.nomAnimal));
 				this.$router.push('/bougies');
+			},
+			capitalize(string) {
+				return string.charAt(0).toUpperCase() + string.slice(1);
 			}
 		}
 	}

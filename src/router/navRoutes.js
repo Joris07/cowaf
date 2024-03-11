@@ -3,8 +3,9 @@ import Trajets from '@/views/Trajets.vue';
 import Discussion from '@/views/Discussion.vue';
 import Profil from '@/views/Profil.vue';
 import Depart from '@/views/Publier/Depart.vue';
+import Calendrier from "@/views/Calendrier/Calendrier.vue";
 
-const auth = false; // Mettre a true pour la version de production
+const auth = true; // Mettre a true pour la version de production
 
 export default [
     {
@@ -32,4 +33,8 @@ export default [
 		component: Discussion,
 		meta: { requiresAuth: auth }
 	},
+	{
+		path: '/calendrier',
+		component: Calendrier
+	}
 ];

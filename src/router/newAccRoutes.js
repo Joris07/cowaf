@@ -5,6 +5,8 @@ import Telephone from "@/views/Telephone.vue";
 import Animal from "@/views/Animal.vue";
 import Bougies from "@/views/Bougies.vue";
 import TraitAnimal from "@/views/TraitAnimal.vue";
+import LoadingScreen from "@/views/LoadingScreen.vue";
+import FicheAnimalClient from "@/views/FicheAnimalClient.vue";
 
 export default [
     {
@@ -35,4 +37,12 @@ export default [
 		path: '/traitanimal',
 		component: TraitAnimal
 	},
+	{
+		path: '/loadingscreen',
+		component: LoadingScreen
+	},
+	{
+		path: '/ficheanimalclient',
+		component: FicheAnimalClient
+	}
 ];

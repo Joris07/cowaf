@@ -6,8 +6,8 @@
 				<div id="container-photo">
 					<div class="trait-row">
                         <div class="trait-item" 
-                            :class="{'selected': selectedTraits['amical']}" 
-                            @click="selectedTraits['amical'] = !selectedTraits['amical']">
+                            :class="{'selected': selectedTraits['Amical']}" 
+                            @click="selectedTraits['Amical'] = !selectedTraits['Amical']">
                             Amical
                         </div>
                         <div class="trait-item"
@@ -102,19 +102,23 @@
 					<div id="texte">
 						<span id="nom-permis" v-if="!nomAnimal"></span>
 						<div id="nom-animal" v-if="nomAnimal">{{ nomAnimal }}</div>
-						<span id="age-permis"></span>
+						<span id="age-permis" v-if="!age"></span>
+						<div id="age-animal" v-if="age">{{ age }} ans</div>
 						<div id="description-permis">
-							<span class="description"></span>
-							<span class="description"></span>
-							<span class="description"></span>
-							<span class="description"></span>
+                            <div v-if="displayedTraits.length" v-for="trait in displayedTraits" :key="trait" class="selected-trait">
+                                {{ trait }}
+                            </div>
+							<span class="description" v-if="!displayedTraits.length"></span>
+							<span class="description" v-if="!displayedTraits.length"></span>
+							<span class="description" v-if="displayedTraits.length < 2"></span>
+							<span class="description" v-if="displayedTraits.length < 2"></span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		
-		<button class="bold button-off-white" :class="{ 'disabled': !isAnyTraitSelected }" :disabled="!isAnyTraitSelected">Valider</button>
+		<button class="bold button-off-white" :class="{ 'disabled': !isAnyTraitSelected }" :disabled="!isAnyTraitSelected" @click="nextStep">Valider</button>
 	</div>
 </template>
 
@@ -125,8 +129,9 @@
 			return {
 				nomAnimal: '',
 				selectedImageUrl: null,
+                age: undefined,
                 selectedTraits: {
-                    'amical': false,
+                    'Amical': false,
                     'Pétochard': false,
                     'Câlin': false,
                     'Curieux': false,
@@ -141,24 +146,45 @@
                     'Agressif': false,
                     "Naime pas les autres animaux": false
                 },
+                displayedTraits: []
 			};
+		},
+		created() {
+			// Récupération du nom et de l'image de l'animal
+			this.nomAnimal = localStorage.getItem('nomAnimal');
+            this.age = localStorage.getItem('age');
+			this.selectedImageUrl = localStorage.getItem('selectedImage');
 		},
         computed: {
             isAnyTraitSelected() {
                 return Object.values(this.selectedTraits).some(value => value);
+            },
+
+            selectedTraitsArray() {
+            // Retourne un tableau des clés (traits) où la valeur est true (sélectionné)
+            return Object.keys(this.selectedTraits).filter(key => this.selectedTraits[key]);
             }
         },
-		created() {
-			// Récupération du nom et de l'image de l'animal
-			this.nomAnimal = localStorage.getItem('nomAnimal');
-			this.selectedImageUrl = localStorage.getItem('selectedImage');
-		}
+        watch: {
+            // Surveiller les changements sur selectedTraitsArray et mettre à jour displayedTraits
+            selectedTraitsArray(newVal) {
+                // Limiter le nombre de traits à afficher à 3
+                this.displayedTraits = newVal.slice(0, 3);
+            }
+        },
+        methods: {
+            nextStep() {
+                localStorage.setItem('displayedTraits', this.displayedTraits);
+                localStorage.setItem('selectedTraits', JSON.stringify(this.selectedTraits));
+				this.$router.push('/loadingscreen');
+            }
+        }
 	}
 </script>
   
 <style scoped>
     #main {
-		padding: 50px 40px 20px 40px;
+		padding: 40px 40px 20px 40px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -247,7 +273,7 @@
 	}
     .trait-row {
         display: flex;
-        margin-top: 24px;
+        margin-top: 12px;
         gap: 10px;
         white-space: nowrap;
     }
@@ -258,7 +284,8 @@
         background-color: #e7edf4;
         color: #09458E;
         flex-grow: 1;
-        padding: 10px 30px;
+        padding: 8px 25px;
+        display: flex;
     }
 
     .centered {
@@ -271,7 +298,7 @@
         white-space: nowrap;
         flex-grow: 1;
         flex-basis: 0%;
-        gap: 24px;
+        gap: 12px;
     }
 
     .trait-item.selected {
@@ -283,4 +310,12 @@
         color: #a0a0a0; /* Texte plus clair pour indiquer qu'il est désactivé */
         cursor: not-allowed; /* Change le curseur pour indiquer qu'il n'est pas cliquable */
     }
+
+    #age-animal {
+		width: 100%;
+		font-weight: 700;
+		border : none;
+		outline: none;
+		font-size: unset;
+	}
 </style>

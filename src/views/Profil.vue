@@ -27,7 +27,7 @@
                     <img class="photos-animaux" src="/img/lumo-petit.png" alt="">
                     <span class="nom-animal">Lumo</span>
                 </div>
-                <div id="imposteur"><div id="plus" class="bold blue-text">+</div></div>
+                <div id="imposteur"><div id="plus" class="bold blue-text" @click="addAnimal">+</div></div>
             </div>
         </div>
      </div>
@@ -43,6 +43,9 @@
         methods: {
             showAnimal() {
                 this.$router.push('/ficheanimal');
+            },
+            addAnimal() {
+                this.$router.push('/animal');
             }
         }
 	};
