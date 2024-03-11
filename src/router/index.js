@@ -19,10 +19,6 @@ const router = createRouter({
 		component: Home
 	},
 	{
-		path: '/dl',
-		component: Download
-	},
-	{
 		path: '/login',
 		component: Login
 	},
