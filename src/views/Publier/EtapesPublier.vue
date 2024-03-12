@@ -55,7 +55,7 @@
 		},
 		methods: {
 			validate() {
-				if ((this.maxStep - 1) == this.currentStep) alert("Impossible d'enregistrer votre trajet pour l'instant. Réessayez plus tard.");
+				if ((this.maxStep - 1) == this.currentStep) alert("Impossible d'enregistrer votre trajet pour le moment.");
 				if (this.currentStep < (this.maxStep - 1)) this.currentStep++;
 			},
 			previousStep() {

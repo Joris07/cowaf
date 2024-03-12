@@ -55,7 +55,7 @@
                 </table>
                 <img v-if="!rowAdded" src="/img/plus-bleu.png" alt="Plus" @click="addRow">
             </div>
-            <button id="chercher" class="bold">Chercher un trajet</button>
+            <button @click="chercher" id="chercher" class="bold">Chercher un trajet</button>
         </div>
 
         <table id="historique" class="column-flex-center">
@@ -118,6 +118,9 @@
                     day: 'numeric',
                 });
             },
+            chercher() {
+                alert("Impossible de créer de réaliser une recherche pour le moment.")
+            }
 		},
         mounted() {
             this.fetchTrajets();

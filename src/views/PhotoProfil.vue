@@ -42,7 +42,7 @@
 				}
 			},
 			submit() {
-				alert("Impossible de créer de nouveau compte pour l'instant. Réessayez plus tard.")
+				alert("Impossible de créer de nouveau compte pour le moment.")
 				this.$router.push('/bienvenue');
 			}
 		}

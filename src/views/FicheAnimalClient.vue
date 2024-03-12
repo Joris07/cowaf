@@ -57,7 +57,7 @@
 		},
 		methods: {
 			nextStep() {
-				alert("Impossible d'enregistrer votre animal pour l'instant. Réessayez plus tard.");
+				alert("Impossible d'enregistrer votre animal pour le moment.");
 				this.$router.push('/recherche');
 			}
 		}
