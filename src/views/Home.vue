@@ -15,9 +15,7 @@
 					<router-link to="/login" id="connexion" class="bold">Connexion</router-link>
 				</div>
 			</div>
-		</div>
-		<div id="install">
-			<img @click="install" src="/img/download.png"></img>
+			<button v-if="!isAppInstalled" @click="install" id="install" class="button-border-blue bold">Télécharger l'application</button>
 		</div>
 		
 	</div>
@@ -28,7 +26,8 @@
 		name: "App",
 		data() {
 			return {
-				deferredPrompt: null
+				deferredPrompt: null,
+				isAppInstalled: false
 			};
 		},
 		created() {
@@ -36,13 +35,21 @@
 				e.preventDefault();
 				this.deferredPrompt = e;
 			});
+			
 			window.addEventListener("appinstalled", () => {
 				this.deferredPrompt = null;
+				this.isAppInstalled = true;
 			});
+
+			if (window.matchMedia('(display-mode: standalone)').matches) {
+				this.isAppInstalled = true;
+			}
 		},
 		methods: {
 			async install() {
-				this.deferredPrompt.prompt();
+				if (this.deferredPrompt) {
+					this.deferredPrompt.prompt();
+				}
 			}
 		}
 	};
@@ -57,16 +64,7 @@
 	}
 
 	#install {
-		background-color: var(--color-blue);
-		border-radius: 50%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 40px;
-		height: 40px;
-		position: absolute;
-		bottom: 1%;
-		right: 1%;
+		text-align: center;
 	}
 
 	#install > img {
@@ -123,6 +121,7 @@
 		align-items: center;
 		gap: 30px;
 		margin-top: 10%;
+		padding-bottom: 20px;
 	}
 
 	#bottom-buttons {

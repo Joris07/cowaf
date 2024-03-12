@@ -1,6 +1,6 @@
 <template>
 	<div id="main">
-
+		<h2 class="blue-text bold">Fonctionnalité à venir</h2>
 	</div>
     <Nav selectedIcon="1"></Nav>
 </template>

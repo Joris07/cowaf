@@ -2,7 +2,7 @@
 	<div id="prix-container">
         <div id="top" class="left">
            <div class="search-barre">
-                <input value="12, Rue Georges Mandel, Angers" class="input-search" type="text" >
+                <input value="12 rue Georges Mandel, 49100, Angers" class="input-search" type="text" >
             </div> 
         </div>
         <div id="prix">
@@ -34,7 +34,8 @@
 		name: 'Profil',
 		components: { Nav, BackButton },
         props: {
-			callback: Function
+			callback: Function,
+            parentInput: String
 		},
         data() {
             return {
@@ -53,7 +54,7 @@
             validateStep() {
                 this.callback();
             },
-        }
+        },
 	};
 </script>
 
@@ -76,7 +77,7 @@
     #top {
         position: absolute;
         top: 27px;
-        padding: 0px 5% 0px 40px;
+        left: 70px;
     }
 
     #prix-valeur {

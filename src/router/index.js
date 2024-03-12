@@ -26,14 +26,6 @@ const router = createRouter({
 		component: FicheAnimal
 	},
 	{
-		path: '/arriver',
-		component: Arriver
-	},
-	{
-		path: '/prix',
-		component: Prix
-	},
-	{
 		path: "/:pathMatch(.*)*",
 		redirect: '/recherche'
 	}

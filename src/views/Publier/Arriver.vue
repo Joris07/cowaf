@@ -2,7 +2,11 @@
 	<div id="arriver">
         <div class="search-barre">
             <img src="/img/loupe.png" alt="Loupe">
-            <input placeholder="Saisissez l'adresse..." class="input-search" type="text" v-model="searchInput">
+            <input 
+                placeholder="Saisissez l'adresse..." class="input-search" type="text" list="addresses" v-model="searchInput" @change="validateStep">
+            <datalist id="addresses">
+                <option v-for="address in randomAddresses" :key="address" :value="address"></option>
+            </datalist>
         </div>
         <CurrentLocationButton 
             @update:searchInputValue="updateSearchInput"
@@ -32,7 +36,8 @@
         data() {
             return {
                 animalCount: 0,
-                searchInput: ''
+                searchInput: '',
+                randomAddresses: []
             };
         },
         methods: {
@@ -42,6 +47,20 @@
             updateSearchInput(value) {
                 this.searchInput = value;
             },
+            generateRandomAddresses() {
+                const addresses = [
+                    '3 Rue de la République, 75001 Paris',
+                    '15 Avenue des Champs-Élysées, 75008 Paris',
+                    '22 Rue du Faubourg Saint-Antoine, 75011 Paris',
+                    '7 Rue de la Pompe, 75116 Paris',
+                    '123 Rue du Faubourg Saint-Honoré, 75008 Paris',
+                ];
+
+                this.randomAddresses = addresses.sort(() => Math.random() - 0.5).slice(0, 5);
+            },
+        },
+        mounted() {
+            this.generateRandomAddresses();
         },
 	};
 </script>

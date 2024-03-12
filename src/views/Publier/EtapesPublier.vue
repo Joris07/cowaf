@@ -4,7 +4,10 @@
 		<div id="main">
 			<h1 id="question">{{ currentStepData.title }}</h1>
 			<keep-alive>
-				<component :is="currentStepData.component" :callback="validate"></component>
+				<component 
+					:is="currentStepData.component" 
+					:callback="validate"
+				></component>
 			</keep-alive>
 		</div>
 	</div>
@@ -18,6 +21,9 @@
 	import Arriver from '@/views/Publier/Arriver.vue';
 	import Depart from '@/views/Publier/Depart.vue';
 	import Prix from '@/views/Publier/Prix.vue';
+	import CalendrierDepart from '@/views/Publier/CalendrierDepart.vue';
+	import NombreAnimaux from '@/views/Publier/NombreAnimaux.vue';
+	import PhotoMaterielTransport from '@/views/Publier/PhotoMaterielTransport.vue';
 	
 	export default {
 		name: 'EtapesPublier',
@@ -28,11 +34,18 @@
 					{ title: 'D’où partez-vous ?', component: Depart },
 					{ title: 'Où allez-vous ?', component: Arriver },
 					{ title: 'Fixer le prix du trajet', component: Prix },
+					{ title: 'Quand partez-vous ? ', component: CalendrierDepart },
+					{ title: 'Dites nous en plus sur votre capacité de transport', component: NombreAnimaux },
+					{ title: 'Dites nous en plus sur votre capacité de transport', component: PhotoMaterielTransport },
 				],
-				currentStep: 1,
+				currentStep: 6,
+				maxStep: 7,
 				Depart: markRaw(Depart),
 				Arriver: markRaw(Arriver),
-				Prix: markRaw(Prix)
+				Prix: markRaw(Prix),
+				CalendrierDepart: markRaw(CalendrierDepart),
+				NombreAnimaux: markRaw(NombreAnimaux),
+				PhotoMaterielTransport: markRaw(PhotoMaterielTransport)
 			};
 		},
 		computed: {
@@ -42,7 +55,10 @@
 		},
 		methods: {
 			validate() {
-				this.currentStep++;
+				if (this.currentStep < (this.maxStep - 1)) this.currentStep++;
+				if ((this.maxStep - 1) == this.currentStep) {
+					alert("Impossible d'enregistrer votre trajet pour l'instant. Réessayez plus tard.");
+				}
 			},
 			previousStep() {
 				if (this.currentStep > 1) {
@@ -63,7 +79,7 @@
 
   	#question {
 		color: var(--color-blue);
-		font-size: 28px;
+		font-size: 26px;
 		font-weight: 700;
   	}
 </style>
