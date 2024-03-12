@@ -107,6 +107,7 @@
 	outline: none;
 	caret-color: var(--color-blue);
 	color: var(--color-blue);
+	width: 100%;
 }
 
 .input-search::placeholder {

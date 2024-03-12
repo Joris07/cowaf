@@ -38,7 +38,7 @@
 					{ title: 'Dites nous en plus sur votre capacité de transport', component: NombreAnimaux },
 					{ title: 'Dites nous en plus sur votre capacité de transport', component: PhotoMaterielTransport },
 				],
-				currentStep: 6,
+				currentStep: 1,
 				maxStep: 7,
 				Depart: markRaw(Depart),
 				Arriver: markRaw(Arriver),
@@ -55,10 +55,8 @@
 		},
 		methods: {
 			validate() {
+				if ((this.maxStep - 1) == this.currentStep) alert("Impossible d'enregistrer votre trajet pour l'instant. Réessayez plus tard.");
 				if (this.currentStep < (this.maxStep - 1)) this.currentStep++;
-				if ((this.maxStep - 1) == this.currentStep) {
-					alert("Impossible d'enregistrer votre trajet pour l'instant. Réessayez plus tard.");
-				}
 			},
 			previousStep() {
 				if (this.currentStep > 1) {

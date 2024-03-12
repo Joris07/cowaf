@@ -32,7 +32,8 @@
         data() {
             return {
                 searchInput: '',
-                searchInput: ''
+                searchInput: '',
+                randomAddresses: []
             };
         },
         props: {
@@ -84,10 +85,6 @@
         display: flex;
         align-items: center;
         gap: 10px;
-    }
-
-    .input-search {
-        width: 100%;
     }
     
 </style>

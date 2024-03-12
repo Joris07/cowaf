@@ -54,10 +54,6 @@
         align-items: center;
         gap: 10px;
     }
-
-    .input-search {
-        width: 100%;
-    }
     
 </style>
   
