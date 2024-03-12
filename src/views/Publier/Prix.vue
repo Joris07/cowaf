@@ -1,12 +1,10 @@
 <template>
-    <BackButton></BackButton>
-	<div id="main">
+	<div id="prix-container">
         <div id="top" class="left">
            <div class="search-barre">
                 <input value="12, Rue Georges Mandel, Angers" class="input-search" type="text" >
             </div> 
         </div>
-        <h1 class="title-publier left bold">Fixer le prix du trajet</h1>
         <div id="prix">
             <button class="arrow-button" @click="decrementPrice">
                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
@@ -23,10 +21,9 @@
                 </svg>
             </button>
         </div>
-        <button class="bold button-off-white">Valider</button>
+        <button class="bold button-off-white" @click="validateStep">Valider</button>
     </div>
-    
-    <Nav selectedIcon="2"></Nav>
+   
 </template>
   
 <script>
@@ -36,6 +33,9 @@
 	export default {
 		name: 'Profil',
 		components: { Nav, BackButton },
+        props: {
+			callback: Function
+		},
         data() {
             return {
                 prixValeur: 15
@@ -49,17 +49,19 @@
                 if (this.prixValeur > 0) {
                     this.prixValeur -= 1;
                 }
-            }
+            },
+            validateStep() {
+                this.callback();
+            },
         }
 	};
 </script>
 
 <style scoped>
-	#main {
+	#prix-container {
 		display: flex;
 		flex-direction: column;
         align-items: center;
-        padding: 25px 30px 0% 30px;
         gap: 20px;
 	}
 
@@ -72,6 +74,8 @@
     }
 
     #top {
+        position: absolute;
+        top: 27px;
         padding: 0px 5% 0px 40px;
     }
 
