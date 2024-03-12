@@ -53,7 +53,7 @@
                         </template>
                     </tbody>
                 </table>
-                <img src="/img/plus-bleu.png" alt="Plus" @click="addRow">
+                <img v-if="!rowAdded" src="/img/plus-bleu.png" alt="Plus" @click="addRow">
             </div>
             <button id="chercher" class="bold">Chercher un trajet</button>
         </div>
@@ -84,12 +84,14 @@
 			return {
                 animals: [{ selected: '', number: 0 }],
                 animalOptions: ['Chat','Chien', 'Tortue'],
-                trajets: []
+                trajets: [],
+                rowAdded: false
             };
 		},
 		methods: {
 			addRow() {
                 this.animals.push({ selected: '', number: 0 });
+                this.rowAdded = true;
             },
             getIcon(animal) {
                 if (animal === 'Chien') {
