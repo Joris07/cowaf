@@ -249,5 +249,12 @@
         height: 100%;
         cursor: pointer; /* Assure que le curseur indique une action */
     }
+
+    @media only screen and (min-width: 768px) {
+		#img-principal {
+			display: none;
+		}
+	}
+
 </style>
   
